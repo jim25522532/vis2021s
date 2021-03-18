@@ -78,7 +78,10 @@
 />
   
 
- 
+   <circle cx="0" cy="0" r="1" stroke="blue" fill="none">
+    <animateMotion dur="6s" path="M456 256 A200 140, 0, 0, 0, 438 192 M429 183 A40 55, 30, 0, 0, 346 129 , M346 129 A200 140, 0, 0, 0, 165 125 M165 125 A40 45, -40, 0, 0, 85 185 , M85 185 A200 140, 0, 0, 0, 56 256 M56 256 A200 170, 1, 0, 0, 456 256" repeatCount="indefinite" rotate="auto"/>
+    <animate attributeName="r" to="15" dur="6s " repeatCount="indefinite"/>
+  </circle>
 
 
 </svg>
