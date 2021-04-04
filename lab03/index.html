@@ -64,7 +64,7 @@ https://www.oxxostudio.tw/articles/201501/svg-d3-13-csv.html
         <script src="./d3.v3.min.js"></script> 
 
         <script type="text/javascript"charset="utf-8">
-
+            var imageData = [];
             d3.select("#div1")
                 .selectAll("img")
                 .data([0, 1, 2, 3])
@@ -77,35 +77,91 @@ https://www.oxxostudio.tw/articles/201501/svg-d3-13-csv.html
                 .attr("width",  function(d, i) { return (i + 1) * 60; })
                 .attr("height", function(d, i) { return (i + 1) * 60; });
 
-            d3.text("data.csv", function(data) {
+            var table = d3.text("data.csv", function(data) {
                 var parsedCSV = d3.csv.parseRows(data);
 
                 var container = d3.select("body")
                     .append("table")
+                    .attr("id","table")
                     .selectAll("tr")
                         .data(parsedCSV).enter()
                         .append("tr")
                     .selectAll("td")
                         .data(function(d,i) { 
+                            let beginDate =+d[4];
+                            let endDate =+d[5];
+
+                            if(beginDate>0){
+                                d[4] = "./92.png";
+                                imageData.push(d[4]);
+                            }
+                            else if(beginDate<=0){
+                                d[4] = "./93.png";
+                                imageData.push(d[4]);
+                            }
+                            
+                            if(endDate>0){
+                                d[5] = "./92.png";
+                                imageData.push(d[4]);
+                            }
+                            else if(endDate<=0){
+                                d[5] = "./93.png";
+                                imageData.push(d[4]);                      
+                            }
+
                             return d; 
                             })
                         .enter()
                         .append("td")
+                        .attr("class",function(d,i){
+                            
+                            if(d=="./92.png"){
+                                return "good";
+                                
+                            }
+                            else if(d=="./93.png"){
+                                return "bad";
+                            }
+                           
+                        })
                         .text(function(d,i) { 
-                            //4 5 
-                            //10 11
-                            //16 17
-                            //22 23
-                            // if(i%6==4){
-                            //     console.log(d);
-                            // }
-                            return d;
+                            if(d=="./92.png"){
+                                //console.log("good hello kitty");
+                            }
+                            else if(d=="./93.png"){
+                                //console.log("bad hello kitty");
+                            }
+                            else{
+                                return d;
+                            }
+                         })
+                         .each(function(d,i){
+                             
+                             d3.selectAll(".good").selectAll("img")
+                             .data([0])
+                             .enter()
+                             .append("img")
+                             .attr("src","./92.png")
+                             .attr("width","60")
+                             .attr("height","60")
+
+                             d3.selectAll(".bad").selectAll("img")
+                             .data([0])
+                             .enter()
+                             .append("img")
+                             .attr("src","./93.png")
+                             .attr("width","60")
+                             .attr("height","60")
                          });
+                        
+                         
+                        
+                
+
             });
 
-            var changeImg = d3.selectAll("tr").data(function(d,i) { 
-                            console.log(d);
-                            })
+            
+          
        
         </script>
     </body>
