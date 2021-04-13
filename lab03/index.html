@@ -1,168 +1,393 @@
-<!--
-http://bl.ocks.org/ndarville/7075823
-https://www.oxxostudio.tw/articles/201501/svg-d3-13-csv.html
--->
-
 <!DOCTYPE html>
+<html lang="zh-Hant-TW">
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap');
+<head>
+    <meta charset="utf-8">
+    <title>lab03</title>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
-            h1 {
-              background-color: rgba(255, 255, 0, 0.1);
-              font-family: 'Noto Serif JP', serif;
-              font-size: 24pt;
-              border: solid 1px black;
-              width: 90%;
-              margin: 5px auto;
-              padding: 10px;
-            }
 
-            body {
-                background-color: rgba(255, 128, 255, 0.1);
-            }
-            table {
-                border-collapse: collapse;
-                border: 2px black solid;
-                font: 24px sans-serif;
-                margin-left: auto;
-                margin-right: auto;
-            }
+    <!--
+    <script src="./d3.js" charset="utf-8"></script>
+	-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap');
+        h1 {
+            /* background-color: rgba(255, 255, 0, 0.1); */
+            font-family: 'Noto Serif JP', serif;
+            font-size: 24pt;
+            /* border: solid 1px black; */
+            width: 90%;
+            margin: 5px auto;
+            padding: 10px;
+        }
+        
+        div {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 12pt;
+            border: solid 1px black;
+            width: 90%;
+            margin: 5px auto;
+            padding: 10px;
+        }
+        
+        div:hover,
+        ul:hover,
+        h1:hover,
+        h3:hover {
+            background-color: rgba(255, 255, 128, 0.1);
+            /* offset-x | offset-y | blur-radius | spread-radius | color */
+            box-shadow: 0px 0px 5px 5px rgba(128, 255, 255, 0.5);
+        }
+        
+        td,
+        th {
+            border: 1px solid #333;
+            padding: 5px 10px;
+        }
+        
+        thead,
+        tfoot {
+            background-color: #888;
+            color: #fff;
+        }
+        
+        div {
+            margin-bottom: 10px;
+        }
+        
+        .pan rect {
+            fill: black;
+            opacity: 0.2;
+        }
+        
+        .pan text {
+            fill: black;
+            font-size: 18px;
+            text-anchor: middle;
+        }
+        
+        .pan:hover rect,
+        .pan:hover text {
+            fill: blue;
+        }
+        
+        .zoom rect {
+            fill: black;
+            opacity: 0.2;
+        }
+        
+        .zoom rect {
+            rx: 5;
+            /* Rounded corners */
+            ry: 5;
+        }
+        
+        .zoom text {
+            fill: black;
+            font-size: 18px;
+            text-anchor: middle;
+        }
+        
+        .zoom:hover rect,
+        .zoom:hover text {
+            fill: blue;
+        }
+        
+        .label {
+            font-family: Helvetica, sans-serif;
+            font-size: 11px;
+            fill: black;
+            text-anchor: middle;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+</head>
 
-            td, th {
-                border: 1px black solid;
-                padding: 5px;
-                background-color: rgba(128, 255, 255, 0.1);
-            }
+<body>
+    <div>
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <td scope="row"><img src="https://learning.oreilly.com/library/cover/9781491921296/250w/" width="120"></td>
+                    <td>
+                        <a href="https://alignedleft.com/tutorials/d3/">D3 Tutorials</a>
+                        <hr> O'Reilly <a href="https://www.oreilly.com/library/view/interactive-data-visualization/9781491921296/">Interactive Data Visualization for the Web</a>, 2nd Edition <img src="https://cdn.oreillystatic.com/images/sitewide-headers/oreilly_logo_mark_red.svg"
+                            width="15%">
+                        <hr> 程式碼下載: <a href="https://github.com/scotthmurray/d3-book/" target="_blank">github</a>。 <img src="https://github.githubassets.com/images/modules/site/home/space.svg" width="20%">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-            td img{
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-            }
+    <h1> lab03 Python Web Server 指令 http.server / localhost </h1>
 
-            img:hover {
-                box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-            }
-        </style>
-    </head>
-    <body>
-        <h1>
-            lab04 製作 CSV 表格，table data cell 內放置 img
-        </h1>
-        <div>
-            <ul>
-                <li><a href="http://bl.ocks.org/ndarville/7075823">From CSV to HTML table (Simple)</a></li>
-                <li><a href="https://www.oxxostudio.tw/articles/201501/svg-d3-13-csv.html">SVG D3.js - CSV 數據處理</a></li>
-            </ul>
+    <div>
+        <a href="https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/50603/">本地伺服器</a> localhot (不經網絡卡傳輸，不受網路防火牆和網絡卡限制。)
+        <br>
+        <a href="https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/50603/">本機伺服器</a> 127.0.0.1 (通過網絡卡傳輸，依賴網絡卡，受到網路防火牆和網絡卡限制。)
+    </div>
+
+    <div>
+        <a href="https://shengyu7697.github.io/blog/2019/11/27/Python-simple-web-server/">Python 快速建立簡單網頁伺服器</a>
+        <hr> 使用 Python http.server 模組建立網頁伺服器 HTTP web sever。 用瀏覽器瀏覽
+        <font color="red">目錄</font>裡的檔案！也可以顯示目錄中的
+        <font color="red">靜態網頁</font>。
+    </div>
+
+    <div>
+        localhost，別台電腦無法連進來。
+        <hr> 使用 Chrome 瀏覽器打開
+        <a href="http://localhost:8000/">http://localhost:8000/index.html</a> 網頁，或打開
+        <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/index.html</a> 網頁。<br>
+        <textarea rows="6" cols="100" style="font-family:'Courier New'; background: rgba(128, 255, 255, 0.1);">
+
+	  pytyhon -m http.server
+
+	  http://localhost:8000/index.html
+	  http://127.0.0.1:8000/index.html
+	  </textarea>
+
+        <hr> localhost (指定 port 8888)，別台電腦無法連進來。
+        <hr> 使用 Chrome 瀏覽器打開
+        <a href="http://localhost:8000/">http://localhost:8888/index.html</a> 網頁，或打開
+        <a href="http://127.0.0.1:8000/">http://127.0.0.1:8888/index.html</a> 網頁。<br>
+        <!-- page 65, pytyhon -m http.server 8888&. -->
+        <textarea rows="6" cols="100" style="font-family:'Courier New'; background: rgba(128, 255, 255, 0.1);">
+
+	  pytyhon -m http.server 8888
+
+	  http://localhost:8888/index.html
+	  http://127.0.0.1:8888/index.html
+	  </textarea>
+    </div>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="4">Reserved Private IPv4 Network Ranges</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Class</th>
+                    <th>Range</th>
+                    <th>Range</th>
+                    <th>Number of addresses</th>
+                </tr>
+                <tr>
+                    <td>A</td>
+                    <td>10.0.0.0</td>
+                    <td>10.255.255.255</td>
+                    <td>16,777,216</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td>172.16.0.0</td>
+                    <td>172.31.255.255</td>
+                    <td>1,048,576</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>192.168.0.0</td>
+                    <td>192.168.255.255</td>
+                    <td>65,536</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div>
+        Private IPv4 Network，內網裝置可以透過這個 IP 連到本機的網頁伺服器。
+        <hr> 使用 Chrome 瀏覽器打開
+        <a href="http://localhost:8000/">http://localhost:8000/index.html</a> 網頁，或打開
+        <a href="http://127.0.0.1:8000/">http://192.168.0.2:8000/index.html</a> 網頁。<br>
+        <textarea rows="6" cols="100" style="font-family:'Courier New'; background: rgba(128, 255, 255, 0.1);">
+
+	  ipconfig /all
+
+	  pytyhon -m http.server -b 192.168.0.2
+
+	  http://192.168.0.2:8000/index.html
+	  </textarea>
+    </div>
+
+
+    <div>
+        --allow-file-access-from-files <br> --disable-web-security
+        <hr>
+        <textarea rows="6" cols="120" style="font-family:'Courier New'; background: rgba(128, 255, 255, 0.1);">
+
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --allow-file-access-from-files --disable-web-security
+
+	  </textarea>
+    </div>
+
+    <!DOCTYPE html>
+	<html lang="zh-Hant-TW">
+	  <head>
+	    <meta charset="utf-8">
+	    <title>D3 Page Template</title>
+	    
+	  </head>
+	  <body>
+	    <script type="text/javascript">
+	      // Your beautiful D3 code will go here
+	    </script>
+	  </body>
+	</html>
+	  </textarea>
+	</div>
+
+	<div id="demo1404"></div>
+	<div>
+	  <textarea rows="36" cols="100" style="font-family:'Courier New'; background: rgba(128, 255, 255, 0.1);">
+
+        //Width and height
+        var w = 500;
+        var h = 300;
+
+        //Define map projection
+        var projection = d3.geo.albersUsa()
+                     .translate([w/2, h/2])
+                     .scale([500]);
+
+        //Define path generator
+        var path = d3.geo.path()
+                 .projection(projection);
+
+        //Create SVG element
+        var svg = d3.select("#demo1404")
+              .append("svg")
+              .attr("width", w)
+              .attr("height", h);
+
+        //Load in GeoJSON data
+        d3.json("us-states.json", function(json) {
+          //Bind data and create one path per GeoJSON feature
+          svg.selectAll("path")
+             .data(json.features)
+             .enter()
+             .append("path")
+             .attr("d", path)
+             .style("fill", "steelblue");
+        });
+
+	  </textarea>
+	</div>
+
+    <script type="text/javascript">
+        // Your beautiful D3 code will go here
+
+		function start(e) {
+	      //Width and height
+	      var w = 500;
+	      var h = 300;
+
+	      //Define map projection
+	      var projection = d3.geo.albersUsa()
+	                   .translate([w/2, h/2])
+	                   .scale([500]);
+
+	      //Define path generator
+	      var path = d3.geo.path()
+	               .projection(projection);
+
+	      //Create SVG element
+	      var svg = d3.select("#demo1404")
+	            .append("svg")
+	            .attr("width", w)
+	            .attr("height", h);
+
+	      //Load in GeoJSON data
+	      d3.json("us-states.json", function(json) {
+	        //Bind data and create one path per GeoJSON feature
+	        svg.selectAll("path")
+	           .data(json.features)
+	           .enter()
+	           .append("path")
+	           .attr("d", path)
+	           .style("fill", "steelblue");
+	      });
+		}
+
+		window.addEventListener( "load", start, false );
+    </script>
+
+    <div>
+        D3 template <br>
+        
+    </div>
+
+    <div class="taiwan-map">
+        <div id="map">
+
         </div>
-        <img src="./c.png" width="650">
-        <div id="div1"></div>
-        <script src="./d3.v3.min.js"></script> 
+        <div class="shop-list">
+            <h1 id="h1">縣市中文/</h1>
+            <h2 id="h2">縣市英文</h2>
+        </div>
+    </div>
 
-        <script type="text/javascript"charset="utf-8">
-            var imageData = [];
-            d3.select("#div1")
-                .selectAll("img")
-                .data([0, 1, 2, 3])
-                .enter()
-                // img
-                .append("img")
-                .attr("src", function(d, i) { if (i % 2 == 0) return "./92.png"; else return "./93.png"; })
-                .attr("x", "0")
-                .attr("y", "0")
-                .attr("width",  function(d, i) { return (i + 1) * 60; })
-                .attr("height", function(d, i) { return (i + 1) * 60; });
+    
+    <script type="text/javascript">
+        // 用外層的 div 當 svg 的寬高
 
-            var table = d3.text("data.csv", function(data) {
-                var parsedCSV = d3.csv.parseRows(data);
-
-                var container = d3.select("body")
-                    .append("table")
-                    .attr("id","table")
-                    .selectAll("tr")
-                        .data(parsedCSV).enter()
-                        .append("tr")
-                    .selectAll("td")
-                        .data(function(d,i) { 
-                            let beginDate =+d[4];
-                            let endDate =+d[5];
-
-                            if(beginDate>0){
-                                d[4] = "./92.png";
-                                imageData.push(d[4]);
-                            }
-                            else if(beginDate<=0){
-                                d[4] = "./93.png";
-                                imageData.push(d[4]);
-                            }
-                            
-                            if(endDate>0){
-                                d[5] = "./92.png";
-                                imageData.push(d[4]);
-                            }
-                            else if(endDate<=0){
-                                d[5] = "./93.png";
-                                imageData.push(d[4]);                      
-                            }
-
-                            return d; 
-                            })
-                        .enter()
-                        .append("td")
-                        .attr("class",function(d,i){
-                            
-                            if(d=="./92.png"){
-                                return "good";
-                                
-                            }
-                            else if(d=="./93.png"){
-                                return "bad";
-                            }
-                           
-                        })
-                        .text(function(d,i) { 
-                            if(d=="./92.png"){
-                                //console.log("good hello kitty");
-                            }
-                            else if(d=="./93.png"){
-                                //console.log("bad hello kitty");
-                            }
-                            else{
-                                return d;
-                            }
-                         })
-                         .each(function(d,i){
-                             
-                             d3.selectAll(".good").selectAll("img")
-                             .data([0])
-                             .enter()
-                             .append("img")
-                             .attr("src","./92.png")
-                             .attr("width","60")
-                             .attr("height","60")
-
-                             d3.selectAll(".bad").selectAll("img")
-                             .data([0])
-                             .enter()
-                             .append("img")
-                             .attr("src","./93.png")
-                             .attr("width","60")
-                             .attr("height","60")
-                         });
-                        
-                         
-                        
-                
-
-            });
-
-            
-          
        
-        </script>
-    </body>
+            const width = 500,
+                height = 300;
+
+            // 座標變換函式
+            var path = d3.geo.path().projection(
+                d3.geo
+                .mercator()
+                .center([121, 24])
+                .scale(4000)
+                .translate([width / 2, height / 2])
+            );
+            // 讓d3抓svg，並寫入寬高
+            //Create SVG element
+            var svg = d3.select("#map")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+
+            // 讓d3抓GeoJSON檔，並寫入path的路徑
+            var url = 'test.geojson'; // GeoJSON的檔案路徑
+            d3.json(url, (error, geometry) => {
+
+                if (error) {
+                    throw error;
+                }
+               
+                svg
+                    .selectAll('path')
+                    .data(geometry.features)
+                    .enter().append('path')
+                    .attr('d', path)
+                    .attr({
+                        // 設定id，為了click時加class用
+                        id: (d) => 'city' + d.properties.COUNTYCODE,
+                        fill:"#4caf50"
+                    })
+                    .on('click', d => {
+                        
+                        $("#h1").text(d.properties.COUNTYNAME);  // 換中文名
+                        $("#h2").text(d.properties.COUNTYENG);  // 換中文名
+                        // 有 .active 存在，就移除 .active
+                        if (document.querySelector('.active')) {
+                            document.querySelector('.active').classList.remove('active');
+                        }
+                        // 被點擊的縣市加上 .active
+                        document.getElementById('city' + d.properties.COUNTYCODE).classList.add('active');
+                    });
+            });
+       
+    </script>
+</body>
+
 </html>
