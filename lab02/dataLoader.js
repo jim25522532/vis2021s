@@ -6,7 +6,7 @@ function dataLoader(text,cb) {
     var uri = 'data:text/plain;base64,' + Base64.encode(text.replace(/;/g, ','))
     var dsv = d3.dsvFormat(",")
 
-    d3.csv(uri, function(rawData){
+    d3.csv("3_293.csv", function(rawData){
         //做資料處理，csv中有些資料是字串，不是數字形式，要轉成數字
         csvData = rawData.map(function(d){
             var t = {}
@@ -87,9 +87,7 @@ function dataClassifier(key, callback) {
         name: title
     }
 
-    var list2 = {
-        category:[]
-    };
+
 
 	var layer = []
 	//循環讀取所有的data

@@ -39,7 +39,6 @@ function getNode(data, layer, container){
       .paddingInner(5) 
     (d3ds);
 
-    console.log(d3ds);
     //依照各個layer的內容給定指定顏色，例如，有6個部門就給6個不同的顏色
     var COLORS = [
         '#B19D4C',
