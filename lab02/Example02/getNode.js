@@ -1,5 +1,5 @@
 function getNode(data, layer, container){
-    
+
     //產生一個存放treemap的節點
     var treemap = document.createElement('div')
 
@@ -14,7 +14,7 @@ function getNode(data, layer, container){
                   .append('svg')
                   .attr('width', width + margin.left + margin.right)
                   .attr('height', height + margin.top + margin.bottom)
-                  .append('g');
+                  .append('g')
 
 
     /**
@@ -24,11 +24,12 @@ function getNode(data, layer, container){
      * d3需要靠總和的占比去推估每個長方形的大小
      * 最後排序一下，會比較好看
      */
-
     var d3ds = d3.hierarchy(data)
         .sum(function (d) { return d.size})
-        .sort(function (a, b) { return b.size - a.size})
-
+        .sort(function (a, b) { return b.size - a.size});
+    
+        
+    console.log(d3ds);
     //設定svg位置
     d3.treemap()
       .size([width, height])
@@ -37,8 +38,8 @@ function getNode(data, layer, container){
       .paddingRight(15)
       //每個treemap之間的邊距
       .paddingInner(5) 
-    (d3ds);
-
+    (d3ds)
+  
     //依照各個layer的內容給定指定顏色，例如，有6個部門就給6個不同的顏色
     var COLORS = [
         '#B19D4C',
@@ -76,7 +77,7 @@ function getNode(data, layer, container){
                     //設定區間的透明度
                       .range([1,.5])
                       
-                      
+  
     //畫長方形
     svg
         .selectAll('rectangle')
@@ -136,10 +137,7 @@ function getNode(data, layer, container){
           .selectAll('layerName')
           //在d3.hierarchy會自動幫我們分出各個階層的名稱，這個函式可以幫我們找出所有階層深度為1的名稱
           //可以先在d3.hierarchy呼叫完後印出輸出的值，將你要顯示的layer名稱深度先記錄下來，這邊可以直接使用
-          .data(d3ds.descendants().filter(function(d) {
-              
-              return d.depth == 1
-            }))
+          .data(d3ds.descendants().filter(function(d) {return d.depth == 1}))
           .enter()
           .append('text')
            .attr('x', function(d) {return d.x0 + 1})
@@ -149,6 +147,6 @@ function getNode(data, layer, container){
            .attr('fill', 'black')
 
     
-
+       
     return treemap
 }
