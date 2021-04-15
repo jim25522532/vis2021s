@@ -6,7 +6,7 @@ function dataLoader(cb) {
     // var uri = 'data:text/plain;base64,' + Base64.encode(text.replace(/;/g, ','))
     var dsv = d3.dsvFormat(",")
    
-    d3.csv("../assert/data/0301-0307.csv", function(rawData){
+    d3.csv("../lab02/assert/data/0301-0307.csv", function(rawData){
         //做資料處理，csv中有些資料是字串，不是數字形式，要轉成數字
         csvData = rawData.map(function(d){
             var t = {}
