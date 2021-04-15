@@ -10,7 +10,7 @@ function dataLoader(cb) {
         //做資料處理，csv中有些資料是字串，不是數字形式，要轉成數字
         csvData = rawData.map(function(d){
             var t = {}
-
+            
             for (var k in d) {
                 
                 //把字串轉成number
@@ -30,6 +30,7 @@ function dataLoader(cb) {
                     t[k] = d[k]
                 }
             }
+            console.log(t);
             return t
         })
 
