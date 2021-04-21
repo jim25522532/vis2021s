@@ -1,3 +1,10 @@
+function click(it) {
+    
+    console.log(it);
+    $("#movieName").text(bread);
+    
+}
+
 function getNode(data, layer, container){
 
     //產生一個存放treemap的節點
@@ -28,8 +35,6 @@ function getNode(data, layer, container){
         .sum(function (d) { return d.size})
         .sort(function (a, b) { return b.size - a.size});
     
-        
-    console.log(d3ds);
     //設定svg位置
     d3.treemap()
       .size([width, height])
@@ -145,7 +150,11 @@ function getNode(data, layer, container){
            .text(function(d) {return d.data.name})
            .attr('font-size', '1.1rem')
            .attr('fill', 'black')
+           .on('click', d => {           
+                
+                $("#movieName").attr("src","./assert/images/"+d.data["name"]+".jpeg");
 
+        });
     
        
     return treemap

@@ -12,7 +12,6 @@ function dataLoader(cb) {
             var t = {}
             
             for (var k in d) {
-                
                 //把字串轉成number
                 if(/[0-9]+/.test(d[k])){
                     t[k] = parseInt(d[k].replace(/(,|\s)+/g, ''))
@@ -30,7 +29,7 @@ function dataLoader(cb) {
                     t[k] = d[k]
                 }
             }
-            console.log(t);
+           
             return t
         })
 
