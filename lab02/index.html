@@ -89,6 +89,8 @@
 			<select id="ObjectKeys">
 				
 			</select>
+
+			
 		</div>
 		<img id="movieName" src="./assert/images/鬼滅之刃劇場版 無限列車篇.jpg"/>
 		<div id="treemap">
@@ -103,7 +105,9 @@
 
 		<script>
 			var csvData = null
-			
+			var csvData = null
+			var dataUri = $("#dateData").val();
+			console.log(dataUri);
 			
 			window.addEventListener('load', function(){
                 var treemapContainer = document.getElementById('treemap')
@@ -177,6 +181,7 @@
 				// 	}
 				// })
 			})
+		
 		</script>
 
 	</body>

@@ -90,12 +90,17 @@ function getNode(data, layer, container){
         .attr('y', function(d){return d.y0})
         .attr('width', function(d) {return d.x1-d.x0})
         .attr('height', function(d) {return d.y1-d.y0})
+        .attr("movieName",function(d) {
+            return d.parent.data.name
+        })
         .style('stroke', 'red')
         //以layer名稱套用顏色
         .style('fill', function(d) {return color(d.parent.data.name)})
         //以數量大小套用透明度
         .style('opacity', function (d) { return opacity(d.data.size)}) 
-    
+        
+
+
     //寫項目名稱，例如: 部門的人事費、業務費...等等
     svg
         .selectAll('listNames')
