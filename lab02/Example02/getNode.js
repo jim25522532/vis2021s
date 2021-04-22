@@ -1,14 +1,10 @@
-function click(it) {
-    
-    console.log(it);
-    $("#movieName").text(bread);
-    
-}
 
 function getNode(data, layer, container){
 
     //產生一個存放treemap的節點
     var treemap = document.createElement('div')
+   
+
 
     //設定這個treemap的邊界
     var margin = {top: 10, right: 10, bottom: 10, left: 10};
@@ -22,8 +18,7 @@ function getNode(data, layer, container){
                   .attr('width', width + margin.left + margin.right)
                   .attr('height', height + margin.top + margin.bottom)
                   .append('g')
-
-
+                  
     /**
      * 利用d3.hierarchy產生x y的資料
      * 這個函式可以自動算出這些treemap所佔的大小
@@ -135,7 +130,9 @@ function getNode(data, layer, container){
         })
         .attr('font-size', function (d) { return '.9rem'})
           .attr('fill', 'white')
-         
+    
+    
+
 
     //寫分層名稱，例如總統府、行政院...
     svg
@@ -151,11 +148,8 @@ function getNode(data, layer, container){
            .attr('font-size', '1.1rem')
            .attr('fill', 'black')
            .on('click', d => {           
-                
-                $("#movieName").attr("src","./assert/images/"+d.data["name"]+".jpeg");
-
+                $("#movieName").attr("src","./assert/images/"+d.data["name"]+".jpg");
         });
     
-       
     return treemap
 }
