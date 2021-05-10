@@ -53,7 +53,7 @@
 
         const yScale = d3.scaleLinear()
         .domain([0, d3.max(data, function(d) { 
-          console.log(data);
+          
           return d.頻率; 
         })])
         .range([height, 0]);
@@ -79,7 +79,7 @@
         .append('rect')
           .attr('x', (d) => xScale(d.組界))
         .attr('y', (d) => yScale(d.頻率))
-        .attr('height', (d) => height - yScale(d.頻率))
+        .attr('height', (d) => height - yScale(0))
         .attr('width', xScale.bandwidth())
         .attr("class","bar")
         .on('mouseenter', function (actual, i) {
@@ -89,6 +89,7 @@
           d3.select(this).attr('opacity', 1)
         });
 
+    
 
         chart.selectAll()
         .data(data)
@@ -100,6 +101,15 @@
         .attr('y', (d) => yScale(d.頻率) + 30)
         .attr('text-anchor', 'middle')
         .text((d) => `${d.頻率}`)
+
+
+        chart.selectAll("rect")
+          .transition()
+          .duration(800)
+          .attr('y', (d) => yScale(d.頻率))
+          .attr('height', (d) => height - yScale(d.頻率))
+          .delay(function(d,i){console.log(i) ; return(i*100)})
+
       }
 
 
