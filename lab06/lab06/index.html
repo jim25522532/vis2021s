@@ -54,19 +54,6 @@ var svg = d3.select("body")
   const dataUrl = "data.csv"
 /* Data in strings like it would be if imported from a csv */
 
-var data = [
-  { year: "2006", redDelicious: "10", mcintosh: "15", oranges: "9", pears: "6" },
-  { year: "2007", redDelicious: "12", mcintosh: "18", oranges: "9", pears: "4" },
-  { year: "2008", redDelicious: "05", mcintosh: "20", oranges: "8", pears: "2" },
-  { year: "2009", redDelicious: "01", mcintosh: "15", oranges: "5", pears: "4" },
-  { year: "2010", redDelicious: "02", mcintosh: "10", oranges: "4", pears: "2" },
-  { year: "2011", redDelicious: "03", mcintosh: "12", oranges: "6", pears: "3" },
-  { year: "2012", redDelicious: "04", mcintosh: "15", oranges: "8", pears: "1" },
-  { year: "2013", redDelicious: "06", mcintosh: "11", oranges: "9", pears: "4" },
-  { year: "2014", redDelicious: "10", mcintosh: "13", oranges: "9", pears: "5" },
-  { year: "2015", redDelicious: "16", mcintosh: "19", oranges: "6", pears: "9" },
-  { year: "2016", redDelicious: "19", mcintosh: "17", oranges: "5", pears: "7" },
-];
 
 //var parse = d3.time.format("%Y").parse;
 
@@ -78,10 +65,11 @@ d3.csv(dataUrl , function(error , data){
         // Transpose the data into layers
       var dataset = d3.layout.stack()(["國文", "英文", "法文", "德文", "日文"].map(function(language) {
         return data.map(function(d,i) {
-          console.log(d[language]);
           return {
             x: (i+1), 
-            y: +d[language]
+            y: +d[language],
+            type1: +d["屬性一"],
+            type2: +d["屬性二"]
           };
         });
       }));
@@ -104,7 +92,7 @@ function render(dataset){
         })])
     .range([height, 0]);
 
-  var colors = ["b33040", "#d25c4d", "#f2b447", "#d9d574","#6495ed"];
+  var colors = ["b33040", "#d25c4d", "#f2b447", "#d9d574","#6495ed","#ffc0cb","#087906"];
 
 
   // Define and draw axes
@@ -134,7 +122,10 @@ function render(dataset){
     .data(dataset)
     .enter().append("g")
     .attr("class", "cost")
-    .style("fill", function(d, i) { return colors[i]; });
+    .style("fill", function(d, i) { return colors[i];
+     });
+
+    
 
   var rect = groups.selectAll("rect")
     .data(function(d) { return d; })
@@ -144,6 +135,22 @@ function render(dataset){
     .attr("y", function(d) { return y(d.y0 + d.y); })
     .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
     .attr("width", x.rangeBand())
+    .style("stroke-width", function(d, i) { 
+        if(d["type1"]==1){
+          return "0.2px";
+        }
+        else {
+          return "0.6px";
+        }
+     })
+     .style("stroke", function(d, i) { 
+        if(d["type1"]==1){
+          return "pink";
+        }
+        else {
+          return "green";
+        }
+     })
     .on("mouseover", function() { tooltip.style("display", null); })
     .on("mouseout", function() { tooltip.style("display", "none"); })
     .on("mousemove", function(d) {
@@ -153,19 +160,22 @@ function render(dataset){
       tooltip.select("text").text(d.y);
     });
 
-
+    
   // Draw legend
   var legend = svg.selectAll(".legend")
     .data(colors)
     .enter().append("g")
     .attr("class", "legend")
-    .attr("transform", function(d, i) { return "translate(30," + i * 19 + ")"; });
+    .attr("transform", function(d, i) { return "translate(30," + i * 19 + ")"; 
+    });
   
   legend.append("rect")
     .attr("x", width - 18)
     .attr("width", 18)
     .attr("height", 18)
-    .style("fill", function(d, i) {return colors.slice().reverse()[i];});
+    .transition()
+    .duration(800)
+    .style("fill", function(d, i) {return colors.slice()[i];});
   
   legend.append("text")
     .attr("x", width + 5)
@@ -179,6 +189,8 @@ function render(dataset){
         case 2: return "法文";
         case 3: return "德文";
         case 4: return "日文";
+        case 5: return "屬性2";
+        case 6: return "屬性2";
       }
     });
 
@@ -193,7 +205,7 @@ function render(dataset){
     .attr("height", 20)
     .attr("fill", "white")
     .style("opacity", 0.5);
-
+    
   tooltip.append("text")
     .attr("x", 15)
     .attr("dy", "1.2em")
