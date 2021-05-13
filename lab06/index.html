@@ -125,12 +125,13 @@ function render(dataset){
     .style("fill", function(d, i) { return colors[i];
      });
 
-    
 
   var rect = groups.selectAll("rect")
     .data(function(d) { return d; })
     .enter()
     .append("rect")
+    .transition()
+    .duration(800)
     .attr("x", function(d) { return x(d.x); })
     .attr("y", function(d) { return y(d.y0 + d.y); })
     .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
@@ -151,6 +152,8 @@ function render(dataset){
           return "green";
         }
      })
+   
+     groups.selectAll("rect")
     .on("mouseover", function() { tooltip.style("display", null); })
     .on("mouseout", function() { tooltip.style("display", "none"); })
     .on("mousemove", function(d) {
@@ -159,7 +162,6 @@ function render(dataset){
       tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
       tooltip.select("text").text(d.y);
     });
-
     
   // Draw legend
   var legend = svg.selectAll(".legend")
@@ -194,6 +196,7 @@ function render(dataset){
       }
     });
 
+   
 
   // Prep the tooltip bits, initial display is hidden
   var tooltip = svg.append("g")
