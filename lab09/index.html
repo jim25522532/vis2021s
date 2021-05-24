@@ -2,14 +2,14 @@
 <html lang="zh-Hant-TW">
   <head>
     <meta charset="utf-8">
-    <title>D3 Page Template</title>
+    <title>Lab09 homework-The video subtitle generate by D3.js</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
     <meta charset="utf-8">
 </head>
 <body>
   <div class="app">
-  <video id="video" width="960px" height="540" preload="auto" onended="document.getElementById('replay').style.display='inline'; document.getElementById('video').style.display='none'; d3.select('#subtitle').remove();">
+  <video id="video" width="960px" height="540" preload="auto" onended="document.getElementById('replay').style.display='inline'; document.getElementById('video').style.display='none'; d3.select('#subtitle').remove();" controls>
     <source src="./Country_Roads.mp4" type="video/mp4">
   </video>
 
@@ -18,7 +18,7 @@
     <script type="text/javascript">
 
 		document.getElementById("video").style.display = "none";
-
+    
 		d3.select('body')
 		  .append('svg')
 		  .attr('id', 'replay')
@@ -38,6 +38,8 @@
 		  })
 		  ;
 
+
+    
 		var myarray = [];
 		var key;
 		var begin;
