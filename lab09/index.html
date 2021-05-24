@@ -3,110 +3,179 @@
   <head>
     <meta charset="utf-8">
     <title>D3 Page Template</title>
+    <link rel="stylesheet" href="style.css">
     <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
     <meta charset="utf-8">
 </head>
 <body>
+  <div class="app">
+  <video id="video" width="960px" height="540" preload="auto" onended="document.getElementById('replay').style.display='inline'; document.getElementById('video').style.display='none'; d3.select('#subtitle').remove();">
+    <source src="./Country_Roads.mp4" type="video/mp4">
+  </video>
+
     <div id="srt"></div>
+  </div>
     <script type="text/javascript">
-      
-      var myarray = [];
-      var key;
-      var begin;
-      var end;
-      var subtitle;
-      var width=960;
-      var height = 540;
 
-      d3.text('DAOKO.srt',(data)=>{
-        console.log(data);
+		document.getElementById("video").style.display = "none";
 
-        parsedCSV = d3.csvParseRows(data);
-        console.log(parsedCSV);
-        
-        d3.select('#srt')
-          .selectAll('p')
-          .data(parsedCSV)
-          .enter()
-          .append("p")
-          .text((d,i)=>{
-            if( !isNaN(d) && d!=''){
-              key = +d-1;
-            }
-            else if(d ==""){
-              myarray.push({
-                "key" : key,
-                "begin" : begin,
-                "end" : end ,
-                "dur" : end-begin , 
-                "subtitle" : subtitle 
-              });
-            }
-            //時間(,)隔開陣列長度剛好長度3
-            else if(d.length==3){
+		d3.select('body')
+		  .append('svg')
+		  .attr('id', 'replay')
+		  .attr('width', 960)
+		  .attr('height', 540)
+		  .append('image')
+		  .attr('x', 220)
+		  .attr('y', 100)
+      .attr("xlink:href","wait_click-removebg-preview.png")
+		  .on('click', function(){
+		  	document.getElementById("video").play();
+		  	document.getElementById("video").style.display = "inline";
+		  	//document.getElementById("subtitle").style.display = "inline";
+		  	//this.style.display = 'none';
+		  	document.getElementById("replay").style.display = "none";
+		  	make_subtitle();
+		  })
+		  ;
 
-              begin = (parseInt(d[0][3]) * 10 + parseInt(d[0][4])) * 60 + 
-              (parseInt(d[0][6]) * 10 + parseInt(d[0][6]));
+		var myarray = [];
+		var key;
+		var begin;
+		var end;
+		var dur;
+		var subtitle;
 
-              end = (parseInt(d[1][11]) * 10 + parseInt(d[1][12])) * 60 + 
-              (parseInt(d[1][14]) * 10 + parseInt(d[1][15]));
-            }
-            else{
-              subtitle = d;
-            }
-            
-          })
-          //完成歌詞
-          console.log("myarray" + myarray);
+		var time = 0;
 
-         
-          
-      d3.select("body")
-          .append("svg")
-          .attr("width",width)
-          .attr("height",height)
-          .attr("viewBox",()=>{
-            return "0 , 0 " + width +"," + height;
-          })
-          .append("rect")
-          .attr("x","0")
-          .attr("y","0")
-          .attr("width",width)
-          .attr("height",height)
-          .attr("fill","none")
-          .attr("stroke","red")
+		function play_time(){
+			
+			time = 0;
+			
+			let timer = setInterval(() => {
+
+				var mytime;
+
+				if (time % 60 < 10) 
+					mytime = '0' + parseInt(time / 60) + ':' + '0' + time % 60;
+				else
+					mytime = '0' + parseInt(time / 60) + ':' + time % 60;
+
+			    d3.select('#subtitle')
+			      .append('text')
+			      .text(mytime)
+			      .attr('x', 800)
+			      .attr('y', 60)
+			      .attr('opacity', 0)
+			      .transition()
+			      .duration(1000)
+			      .attr('opacity', 1)
+			      .transition()
+			      .duration(1000)
+			      .attr('opacity', 0)
+			      .remove()
+			      ;
+
+			    time++;
+			}, 1000);
+		}
 
 
-      d3.selectAll("text")
-          .data(myarray)
-          .enter()
-          .append("text")
-          .text(function(d , i){
-              return d.subtitle;
-          })
-          .attr('font-size','66pt')
-          .attr('fill','black')
-          .attr("stroke", "blue")
-          .attr("x", width / 2)
-          .attr("y" , height - 50)
-          .attr("text-anchor","middle")
-          //MS PGothic 微軟正黑體
-          .style("font-family","MS PGothic")
-          .attr("opacity",0)
-          .transition()
-          .delay(function(d){
-            return (d.begin - d.dur /4) *100;
-          })
-          .duration(function(d){
-            return d.dur * 1000;
-          })
-          .attr("opacity",1)
-          ;
-      })
+		function make_subtitle(){
 
-     
+			d3.text('DAOKO.srt', function(data){
+				console.log(data);
+				//alert(data);
 
-    </script>
+				parsedCSV = d3.csvParseRows(data);
+				console.log(parsedCSV);
+				//alert('parsedCSV.length = ' + parsedCSV.length);
+
+				d3.select('#srt')
+				  .selectAll('p')
+				  .data(parsedCSV)
+				  .enter()
+				  .append("p")
+				  .text(function(d, i){
+				  	//return d;
+				  	if ( !isNaN(d) && d != '' ){
+				  		key = parseInt(d);
+				  	} else if (d == '') {
+				  		myarray.push({
+				  			"key": key,
+				  			"begin": begin,
+				  			"end": end,
+				  			"dur": end - begin,
+				  			"subtile": subtile
+				  		});
+				  	} else if (d.length == 3 ){
+				  		begin = (parseInt(d[0][3]) * 10 + parseInt(d[0][4])) * 60 +
+				  		        (parseInt(d[0][6]) * 10 + parseInt(d[0][7]));
+
+				  		end =   (parseInt(d[1][11]) * 10 + parseInt(d[1][12])) * 60 +
+				  		        (parseInt(d[1][14]) * 10 + parseInt(d[1][15]));
+				  	} else {
+				  		subtile = d;
+				  	}   
+				  })
+				  ;
+
+				  // 完成歌詞
+				  console.log(myarray);
+
+				  // 完成歌詞
+				  var w = 960;
+				  var h = 540;
+
+				  var svg = d3.select('body')
+				    .append('svg')
+				    .attr('id', 'subtitle')
+				    .attr('width', w)
+				    .attr('height', h)
+				    .attr('viewbox', function(){
+				    	return "0, 0, " + w + ', ' + h;
+				    })
+				    ;
+
+				svg.selectAll('text')
+			       .data(myarray)
+			       .enter()
+			       .append('text')
+			       .text(function(d, i){
+						return d.subtile;
+					})
+			       .attr('begin', function(d, i){
+			       		return d.begin;
+			       })
+			       .attr('end', function(d, i){
+			       		return d.end;
+			       })
+			       .attr('x', w / 2)
+			       .attr('y', h - 50)
+			       .attr("text-anchor", "middle")
+			       //.style('display', 'none')
+			       .attr('opacity', 0)
+			       .transition()
+			       .delay(function(d){
+			     	   return (d.begin - d.dur / 2) * 1000;
+			       })
+			       .duration(function(d){
+			           return (d.dur + d.dur / 2) * 1000;
+			       })
+			       .attr('opacity', 1)
+			       .transition()
+		           .duration(function(d){
+		               return (d.dur / 6.0 * 1000.0);
+		           })
+			       .attr('opacity', 0)
+			       ;
+
+			    play_time();
+			})
+		}
+
+
+
+	</script>
   </body>
 </html>
   
