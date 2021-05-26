@@ -34,7 +34,7 @@ if (videoWorks) {
 function togglePlay() {
     
   if (video.paused || video.ended) {
-      console.log("play video");
+   
     video.play();
     make_subtitle();
   } else {
