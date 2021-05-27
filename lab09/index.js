@@ -19,7 +19,8 @@ const fullscreenButton = document.getElementById('fullscreen-button');
 const videoContainer = document.getElementById('video-container');
 // const fullscreenIcons = fullscreenButton.querySelectorAll('use');
 // const pipButton = document.getElementById('pip-button');
-
+var timer;
+var myarray = [];
 const videoWorks = !!document.createElement('video').canPlayType;
 if (videoWorks) {
   video.controls = false;
@@ -34,10 +35,15 @@ if (videoWorks) {
 function togglePlay() {
     
   if (video.paused || video.ended) {
-   
+
     video.play();
     make_subtitle();
-  } else {
+  } 
+  else {
+    d3.selectAll("p").remove();
+    d3.selectAll("#subtitle").remove();
+    clearInterval(timer);
+    myarray = []
     video.pause();
   }
 }
@@ -104,17 +110,21 @@ function updateSeekTooltip(event) {
   seekTooltip.textContent = `${t.minutes}:${t.seconds}`;
   const rect = video.getBoundingClientRect();
   seekTooltip.style.left = `${event.pageX - rect.left}px`;
+  
 }
 
 // skipAhead jumps to a different point in the video when the progress bar
 // is clicked
 function skipAhead(event) {
+  console.log(event);
   const skipTo = event.target.dataset.seek
     ? event.target.dataset.seek
     : event.target.value;
   video.currentTime = skipTo;
   progressBar.value = skipTo;
+
   seek.value = skipTo;
+  
 }
 
 // updateVolume updates the video's volume
@@ -183,47 +193,47 @@ function animatePlayback() {
 // toggleFullScreen toggles the full screen state of the video
 // If the browser is currently in fullscreen mode,
 // then it should exit and vice versa.
-function toggleFullScreen() {
-  if (document.fullscreenElement) {
-    document.exitFullscreen();
-  } else if (document.webkitFullscreenElement) {
-    // Need this to support Safari
-    document.webkitExitFullscreen();
-  } else if (videoContainer.webkitRequestFullscreen) {
-    // Need this to support Safari
-    videoContainer.webkitRequestFullscreen();
-  } else {
-    videoContainer.requestFullscreen();
-  }
-}
+// function toggleFullScreen() {
+//   if (document.fullscreenElement) {
+//     document.exitFullscreen();
+//   } else if (document.webkitFullscreenElement) {
+//     // Need this to support Safari
+//     document.webkitExitFullscreen();
+//   } else if (videoContainer.webkitRequestFullscreen) {
+//     // Need this to support Safari
+//     videoContainer.webkitRequestFullscreen();
+//   } else {
+//     videoContainer.requestFullscreen();
+//   }
+// }
 
 // updateFullscreenButton changes the icon of the full screen button
 // and tooltip to reflect the current full screen state of the video
-function updateFullscreenButton() {
-  fullscreenIcons.forEach((icon) => icon.classList.toggle('hidden'));
+// function updateFullscreenButton() {
+//   fullscreenIcons.forEach((icon) => icon.classList.toggle('hidden'));
 
-  if (document.fullscreenElement) {
-    fullscreenButton.setAttribute('data-title', 'Exit full screen (f)');
-  } else {
-    fullscreenButton.setAttribute('data-title', 'Full screen (f)');
-  }
-}
+//   if (document.fullscreenElement) {
+//     fullscreenButton.setAttribute('data-title', 'Exit full screen (f)');
+//   } else {
+//     fullscreenButton.setAttribute('data-title', 'Full screen (f)');
+//   }
+// }
 
 // togglePip toggles Picture-in-Picture mode on the video
-async function togglePip() {
-  try {
-    if (video !== document.pictureInPictureElement) {
-      pipButton.disabled = true;
-      await video.requestPictureInPicture();
-    } else {
-      await document.exitPictureInPicture();
-    }
-  } catch (error) {
-    console.error(error);
-  } finally {
-    pipButton.disabled = false;
-  }
-}
+// async function togglePip() {
+//   try {
+//     if (video !== document.pictureInPictureElement) {
+//       pipButton.disabled = true;
+//       await video.requestPictureInPicture();
+//     } else {
+//       await document.exitPictureInPicture();
+//     }
+//   } catch (error) {
+//     console.error(error);
+//   } finally {
+//     pipButton.disabled = false;
+//   }
+// }
 
 // hideControls hides the video controls when not in use
 // if the video is paused, the controls must remain visible
@@ -320,7 +330,7 @@ document.addEventListener('keyup', keyboardShortcuts);
   
   
       
-var myarray = [];
+
 var key;
 var begin;
 var end;
@@ -333,7 +343,11 @@ function play_time(){
 			
     time = 0;
     
-    let timer = setInterval(() => {
+
+
+
+
+     timer = setInterval(() => {
 
         var mytime;
 
@@ -359,17 +373,44 @@ function play_time(){
 
         time++;
     }, 1000);
+    
 }
+function countTime() {
+ 
+  var mytime;
 
+  if (time % 60 < 10) 
+      mytime = '0' + parseInt(time / 60) + ':' + '0' + time % 60;
+  else
+      mytime = '0' + parseInt(time / 60) + ':' + time % 60;
 
+  d3.select('#subtitle')
+    .append('text')
+    .text(mytime)
+    .attr('x', 650)
+    .attr('y', 60)
+    .attr('opacity', 0)
+    .transition()
+    .duration(1000)
+    .attr('opacity', 1)
+    .transition()
+    .duration(1000)
+    .attr('opacity', 0)
+    .remove()
+    ;
+
+  time++;
+}
 function make_subtitle(){
 
     d3.text('DAOKO.srt', function(data){
-        console.log(data);
+        // console.log(data);
         //alert(data);
+        var videoTime = parseInt(video.currentTime)+3;
+        // console.log(videoTime);
 
         parsedCSV = d3.csvParseRows(data);
-        console.log(parsedCSV);
+        // console.log(parsedCSV);
         //alert('parsedCSV.length = ' + parsedCSV.length);
 
         d3.select('#srt')
@@ -382,19 +423,25 @@ function make_subtitle(){
               if ( !isNaN(d) && d != '' ){
                   key = parseInt(d);
               } else if (d == '') {
-                  myarray.push({
+                  if(begin>videoTime){
+                    myarray.push({
                       "key": key,
                       "begin": begin,
                       "end": end,
                       "dur": end - begin,
                       "subtile": subtile
-                  });
+                    });
+                  }
               } else if (d.length == 3 ){
                   begin = (parseInt(d[0][3]) * 10 + parseInt(d[0][4])) * 60 +
                           (parseInt(d[0][6]) * 10 + parseInt(d[0][7]));
 
                   end =   (parseInt(d[1][11]) * 10 + parseInt(d[1][12])) * 60 +
                           (parseInt(d[1][14]) * 10 + parseInt(d[1][15]));
+                  // console.log("begin"+begin);
+                  // console.log("videoTime"+videoTime);
+                  // console.log(begin>videoTime);
+
               } else {
                   subtile = d;
               }   
