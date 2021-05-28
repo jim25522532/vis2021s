@@ -76,7 +76,7 @@
       }
 
       /* Style the buttons inside the tab */
-      .tab button {
+      .tab button , .tab a{
         background-color: #ffc;
         float: left;
         border: 1px solid #fcc;
@@ -90,12 +90,12 @@
       }
 
       /* Change background color of buttons on hover */
-      .tab button:hover {
+      .tab button:hover , .tab a:hover{
         background-color: #ddd;
       }
 
       /* Create an active/current tablink class */
-      .tab button.active {
+      .tab button.active , .tab a.active{
         background-color: #ccc;
       }
 
@@ -120,15 +120,16 @@
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'content')">content</button>
   <button class="tablinks" onclick="openCity(event, 'lab00')">00</button>
-  <button class="tablinks" onclick="openCity(event, 'lab01')">01</button>
-  <button class="tablinks" onclick="openCity(event, 'lab02')">02</button>
-  <button class="tablinks" onclick="openCity(event, 'lab03')">03</button>
-  <button class="tablinks" onclick="openCity(event, 'lab04')">04</button>
-  <button class="tablinks" onclick="openCity(event, 'lab05')">05</button>
-  <button class="tablinks" onclick="openCity(event, 'lab06')">06</button>
-  <button class="tablinks" onclick="openCity(event, 'lab07')">07</button>
-  <button class="tablinks" onclick="openCity(event, 'lab08')">08</button>
-  <button class="tablinks" onclick="openCity(event, 'lab09')">09</button>
+  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab01/index.html">01</a>
+  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab02/index.html">02</a>
+  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab03/index.html">03</a>
+  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab04/index.html">04</a>
+  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab05/index.html">05</a>
+  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab06/index.html">06</a>
+  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab07/index.html">07</a>
+  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab08/index.html">08</a>
+  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab09/index.html">09</a>
+  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab09/index.html">09 sol</a>
   <button class="tablinks" onclick="openCity(event, 'lab10')">10</button>
   <button class="tablinks" onclick="openCity(event, 'lab11')">11</button>
   <button class="tablinks" onclick="openCity(event, 'lab12')">12</button>
@@ -244,7 +245,7 @@ function openCity(evt, cityName) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
   document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
+  // evt.currentTarget.className += " active";
 }
 </script>
 
