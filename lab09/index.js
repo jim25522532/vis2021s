@@ -35,15 +35,11 @@ if (videoWorks) {
 function togglePlay() {
     
   if (video.paused || video.ended) {
-
+    resetSubtitle();
     video.play();
-    make_subtitle();
   } 
   else {
-    d3.selectAll("p").remove();
-    d3.selectAll("#subtitle").remove();
-    clearInterval(timer);
-    myarray = []
+    resetSubtitle();
     video.pause();
   }
 }
@@ -111,20 +107,17 @@ function updateSeekTooltip(event) {
   const rect = video.getBoundingClientRect();
   seekTooltip.style.left = `${event.pageX - rect.left}px`;
   
+
 }
 
 // skipAhead jumps to a different point in the video when the progress bar
 // is clicked
 function skipAhead(event) {
-  console.log(event);
-  const skipTo = event.target.dataset.seek
-    ? event.target.dataset.seek
-    : event.target.value;
+  const skipTo = event.target.dataset.seek ? event.target.dataset.seek : event.target.value;
   video.currentTime = skipTo;
   progressBar.value = skipTo;
-
   seek.value = skipTo;
-  
+  resetSubtitle();
 }
 
 // updateVolume updates the video's volume
@@ -308,29 +301,6 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('keyup', keyboardShortcuts);
 
 
-  
-          // d3.select('body')
-          //   .append('svg')
-          //   .attr('id', 'replay')
-          //   .attr('width', 960)
-          //   .attr('height', 540)
-          //   .append('image')
-          //   .attr('x', 220)
-          //   .attr('y', 100)
-      //   .attr("xlink:href","wait_click-removebg-preview.png")
-          //   .on('click', function(){
-          //   	document.getElementById("video").play();
-          //   	document.getElementById("video").style.display = "inline";
-          //   	//document.getElementById("subtitle").style.display = "inline";
-          //   	//this.style.display = 'none';
-          //   	document.getElementById("replay").style.display = "none";
-          //   	make_subtitle();
-          //   })
-          //   ;
-  
-  
-      
-
 var key;
 var begin;
 var end;
@@ -341,72 +311,42 @@ var time = 0;
 
 function play_time(){
 			
-    time = 0;
-    
-
-
-
+    time = parseInt(video.currentTime);
+    console.log(time);
+    var time2 = parseInt(video.duration );  
 
      timer = setInterval(() => {
 
-        var mytime;
-
-        if (time % 60 < 10) 
-            mytime = '0' + parseInt(time / 60) + ':' + '0' + time % 60;
-        else
-            mytime = '0' + parseInt(time / 60) + ':' + time % 60;
-
-        d3.select('#subtitle')
-          .append('text')
-          .text(mytime)
-          .attr('x', 650)
-          .attr('y', 60)
-          .attr('opacity', 0)
-          .transition()
-          .duration(1000)
-          .attr('opacity', 1)
-          .transition()
-          .duration(1000)
-          .attr('opacity', 0)
-          .remove()
-          ;
-
+        var mytime  = to_clock(time);
+        var mytime2 = to_clock(time2);
+        if(mytime<=mytime2){
+          d3.select('#subtitle')
+            .append('text')
+            .attr('id', 'clock')
+            .text(mytime +' / ' + mytime2)
+            .attr('x', 430)
+            .attr('y', 60)
+            .attr('opacity', 0)
+            .transition()
+            .duration(1000)
+            .attr('opacity', 1)
+            .transition()
+            .duration(1000)
+            .attr('opacity', 0)
+            .remove()
+            ;
         time++;
+      }
     }, 1000);
     
 }
-function countTime() {
- 
-  var mytime;
 
-  if (time % 60 < 10) 
-      mytime = '0' + parseInt(time / 60) + ':' + '0' + time % 60;
-  else
-      mytime = '0' + parseInt(time / 60) + ':' + time % 60;
-
-  d3.select('#subtitle')
-    .append('text')
-    .text(mytime)
-    .attr('x', 650)
-    .attr('y', 60)
-    .attr('opacity', 0)
-    .transition()
-    .duration(1000)
-    .attr('opacity', 1)
-    .transition()
-    .duration(1000)
-    .attr('opacity', 0)
-    .remove()
-    ;
-
-  time++;
-}
 function make_subtitle(){
 
     d3.text('DAOKO.srt', function(data){
         // console.log(data);
         //alert(data);
-        var videoTime = parseInt(video.currentTime)+3;
+        var videoTime = parseInt(video.currentTime);
         // console.log(videoTime);
 
         parsedCSV = d3.csvParseRows(data);
@@ -423,7 +363,8 @@ function make_subtitle(){
               if ( !isNaN(d) && d != '' ){
                   key = parseInt(d);
               } else if (d == '') {
-                  if(begin>videoTime){
+                
+                  if(begin>=0){
                     myarray.push({
                       "key": key,
                       "begin": begin,
@@ -441,7 +382,9 @@ function make_subtitle(){
                   // console.log("begin"+begin);
                   // console.log("videoTime"+videoTime);
                   // console.log(begin>videoTime);
-
+                console.log("begin time"+begin);
+                begin = begin - videoTime;
+                end = end - videoTime;
               } else {
                   subtile = d;
               }   
@@ -465,7 +408,8 @@ function make_subtitle(){
                 return "0, 0, " + w + ', ' + h;
             })
             ;
-
+        
+        console.log("myarray"+myarray)
         svg.selectAll('text')
            .data(myarray)
            .enter()
@@ -486,6 +430,7 @@ function make_subtitle(){
            .attr('opacity', 0)
            .transition()
            .delay(function(d){
+                console.log("delay"+d);
                 return (d.begin - d.dur / 2) * 1000;
            })
            .duration(function(d){
@@ -501,4 +446,21 @@ function make_subtitle(){
 
         play_time();
     })
+    
+}
+
+
+function to_clock (time){
+  if (time % 60 < 10) 
+    return '0' + parseInt(time / 60) + ':' + '0' + time % 60;
+  else
+    return '0' + parseInt(time / 60) + ':' + time % 60;
+}
+
+function resetSubtitle(){
+  d3.selectAll("p").remove();
+  d3.selectAll("#subtitle").remove();
+  clearInterval(timer);
+  myarray = []
+  make_subtitle();
 }
