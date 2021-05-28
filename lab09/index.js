@@ -1,4 +1,7 @@
 // Select elements here
+$(function(){
+
+
 const video = document.getElementById('video');
 const videoControls = document.getElementById('video-controls');
 const playButton = document.getElementById('play');
@@ -33,7 +36,7 @@ if (videoWorks) {
 // If the video playback is paused or ended, the video is played
 // otherwise, the video is paused
 function togglePlay() {
-    
+  
   if (video.paused || video.ended) {
     resetSubtitle();
     video.play();
@@ -312,7 +315,7 @@ var time = 0;
 function play_time(){
 			
     time = parseInt(video.currentTime);
-    console.log(time);
+    
     var time2 = parseInt(video.duration );  
 
      timer = setInterval(() => {
@@ -382,7 +385,7 @@ function make_subtitle(){
                   // console.log("begin"+begin);
                   // console.log("videoTime"+videoTime);
                   // console.log(begin>videoTime);
-                console.log("begin time"+begin);
+                
                 begin = begin - videoTime;
                 end = end - videoTime;
               } else {
@@ -392,7 +395,7 @@ function make_subtitle(){
           ;
 
           // 完成歌詞
-          console.log(myarray);
+          
 
           // 完成歌詞
           var w = 960;
@@ -409,7 +412,7 @@ function make_subtitle(){
             })
             ;
         
-        console.log("myarray"+myarray)
+     
         svg.selectAll('text')
            .data(myarray)
            .enter()
@@ -430,7 +433,7 @@ function make_subtitle(){
            .attr('opacity', 0)
            .transition()
            .delay(function(d){
-                console.log("delay"+d);
+              
                 return (d.begin - d.dur / 2) * 1000;
            })
            .duration(function(d){
@@ -464,3 +467,4 @@ function resetSubtitle(){
   myarray = []
   make_subtitle();
 }
+});
