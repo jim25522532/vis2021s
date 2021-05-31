@@ -1,0 +1,246 @@
+
+    #path99 {
+        stroke-width: 12 !important;
+        clip-path: url("./clipPath/zhi.svg");
+        stroke-dasharray: 50;
+        animation: dash99 5s linear forwards;
+      }
+  
+      @keyframes dash99 {
+  
+        0%
+        {
+          stroke-dashoffset: 50;
+        }
+  
+        7% {
+          stroke-dashoffset: 0;
+        }
+      }
+  
+      #path101 {
+        stroke-width: 12 !important;
+        clip-path: url("./clipPath/zhi.svg");
+        stroke-dasharray: 162;
+        animation: dash101 5s linear forwards;
+      }
+  
+      @keyframes dash101 {
+  
+        0%,
+        7% {
+          stroke-dashoffset: 162;
+        }
+  
+        14% {
+          stroke-dashoffset: 0;
+        }
+      }
+  
+      #path103 {
+        stroke-width: 12 !important;
+        clip-path: url("./clipPath/zhi.svg");
+        stroke-dasharray: 229;
+        animation: dash103 5s linear forwards;
+      }
+  
+      @keyframes dash103 {
+  
+        0%,
+        14% {
+          stroke-dashoffset: 229;
+        }
+  
+        21% {
+          stroke-dashoffset: 0;
+        }
+      }
+  
+      #path105 {
+        stroke-width: 12 !important;
+        clip-path: url("./clipPath/zhi.svg");
+        stroke-dasharray: 38;
+        animation: dash105 5s linear forwards;
+      }
+  
+      @keyframes dash105 {
+  
+        0%,
+        21% {
+          stroke-dashoffset: 38;
+        }
+  
+        28% {
+          stroke-dashoffset: 0;
+        }
+      }
+  
+      #path107 {
+        stroke-width: 12 !important;
+        clip-path: url("./clipPath/zhi.svg");
+        stroke-dasharray: 91;
+        animation: dash107 5s linear forwards;
+      }
+  
+      @keyframes dash107 {
+  
+        0%,
+        28% {
+          stroke-dashoffset: 91;
+        }
+  
+        35% {
+          stroke-dashoffset: 0;
+        }
+      }
+  
+      #path109 {
+        stroke-width: 12 !important;
+        clip-path: url("./clipPath/zhi.svg");
+        stroke-dasharray: 42;
+        animation: dash109 5s linear forwards;
+      }
+  
+      @keyframes dash109 {
+  
+        0%,
+        35% {
+          stroke-dashoffset: 42;
+        }
+  
+        42% {
+          stroke-dashoffset: 0;
+        }
+      }
+  
+      #path111 {
+        stroke-width: 12 !important;
+        clip-path: url("./clipPath/zhi.svg");
+        stroke-dasharray: 128;
+        animation: dash111 5s linear forwards;
+      }
+  
+      @keyframes dash111 {
+  
+        0%,
+        42% {
+          stroke-dashoffset: 128;
+        }
+  
+        49% {
+          stroke-dashoffset: 0;
+        }
+      }
+  
+      #path113{
+        stroke-width: 12 !important;
+        clip-path: url("./clipPath/zhi.svg");
+        stroke-dasharray: 93;
+        animation: dash113 5s linear forwards;
+      }
+  
+      @keyframes dash113 {
+  
+        0%,
+        49% {
+          stroke-dashoffset: 93;
+        }
+  
+        56% {
+          stroke-dashoffset: 0;
+        }
+      }
+  
+      #path115 {
+        stroke-width: 12 !important;
+        clip-path: url("./clipPath/zhi.svg");
+        stroke-dasharray: 94;
+        animation: dash115 5s linear forwards;
+      }
+  
+      @keyframes dash115 {
+  
+        0%,
+        56% {
+          stroke-dashoffset: 94;
+        }
+  
+        63% {
+          stroke-dashoffset: 0;
+        }
+      }
+  
+      #path117 {
+        stroke-width: 12 !important;
+        clip-path: url("./clipPath/zhi.svg");
+        stroke-dasharray: 47;
+        animation: dash117 5s linear forwards;
+      }
+  
+      @keyframes dash117 {
+  
+        0%,
+        63% {
+          stroke-dashoffset: 47;
+        }
+  
+        70% {
+          stroke-dashoffset: 0;
+        }
+      }
+  
+      #path119 {
+        stroke-width: 12 !important;
+        clip-path: url("./clipPath/zhi.svg");
+        stroke-dasharray: 236;
+        animation: dash119 5s linear forwards;
+      }
+  
+      @keyframes dash119 {
+  
+        0%,
+        70% {
+          stroke-dashoffset:  236;
+        }
+  
+        77% {
+          stroke-dashoffset: 0;
+        }
+      }
+  
+      #path121 {
+        stroke-width: 12 !important;
+        clip-path: url("./clipPath/zhi.svg");
+        stroke-dasharray: 41;
+        animation: dash121 5s linear forwards;
+      }
+  
+      @keyframes dash121 {
+  
+        0%,
+        77% {
+          stroke-dashoffset: 41;
+        }
+  
+        84% {
+          stroke-dashoffset: 0;
+        }
+      }
+      #path123 {
+        stroke-width: 12 !important;
+        clip-path: url("./clipPath/zhi.svg");
+        stroke-dasharray: 52;
+        animation: dash123 5s linear forwards;
+      }
+  
+      @keyframes dash123 {
+  
+        0%,
+        84% {
+          stroke-dashoffset: 52;
+        }
+  
+        91% {
+          stroke-dashoffset: 0;
+        }
+      }

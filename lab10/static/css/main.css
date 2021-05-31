@@ -1,0 +1,80 @@
+/* COLORS
+Background
+0B0C10
+Secondary Background
+1F2833
+Gray
+C5C6C7
+Primary
+66FCF1
+Secondary
+45A29
+*/
+
+body{
+     font-family: 'Montserrat' , sans-serif;
+}
+
+h1,h2,h3,h4,h5{
+    font-weight: 700;
+}
+/*
+    Header 
+*/
+a{
+    color:#66FCF1;
+}
+
+input {
+    background-color: #1F2833 !important;
+    color: #66FCF1 !important;
+}
+.navbar{
+    background-color: #0B0C10;
+    color:#66FCF1 !important;
+}
+
+.navbar-brand{
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.btn-main{
+    background-color: #66FCF1 !important;
+    color: #0B0C10 !important;
+}
+
+/* HERO SECTION */
+.hero{
+    background-color: #1F2833;
+
+}
+
+.hero-post-badges{
+    position: absolute;
+    top:20px;
+    right: 20px;
+
+}
+
+.hero-post-badges>a{
+    display: block;
+    background-color: #0B0C10;
+    color: #66FCF1;
+    font-size: 0.8rem;
+}
+
+.hero-post-content{
+    position: absolute;
+    bottom:0;
+}
+
+.hero-post-content{
+    position: absolute;
+    bottom:20px;
+    color: #66FCF1;
+}
+
+.hero-post-content img{
+    border:2px solid #66FCF1;
+}

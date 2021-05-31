@@ -1,1 +1,480 @@
-var _0x2667=['q\x209=c.j(\x229\x22),L=c.j(\x229-1B\x22),X=c.j(\x221j\x22),1C=c.1D(\x22.1E-2e\x20R\x22),1k=c.j(\x22S-2f\x22),r=c.j(\x22r\x22),Y=c.j(\x222g-2h\x22),l=c.j(\x22l\x22),1l=c.j(\x22l-2i\x22),Z=c.j(\x22d-1m\x22),1F=c.1D(\x22.d-1m\x20R\x22),1G=c.1n(\x27R[1o=\x22#d-2j\x22]\x27),1H=c.1n(\x27R[1o=\x22#d-2k\x22]\x27),1I=c.1n(\x27R[1o=\x22#d-2l\x22]\x27),d=c.j(\x22d\x22),1J=c.j(\x221E-2m\x22),2n=c.j(\x222o-1m\x22),2p=c.j(\x229-1K\x22);H\x201p,13=[];q\x201L=!!c.2q(\x229\x22).2r;b\x2016(){9.17||9.2s?(18(),9.1j()):(18(),9.1M())}b\x201q(){1C.1N(e=>e.w.2t(\x22I\x22)),9.17?X.u(\x22B-19\x22,\x222u\x20(k)\x22):X.u(\x22B-19\x22,\x222v\x20(k)\x22)}b\x201a(e){q\x20t=2w\x202x(J*e).2y().1r(11,8);z{M:t.1r(3,2),N:t.1r(6,2)}}b\x201O(){q\x20e=T.1s(9.r);l.u(\x221t\x22,e),Y.u(\x221t\x22,e);q\x20t=1a(e);r.1P=`${t.M}:${t.N}`,r.u(\x221Q\x22,`${t.M}m\x20${t.N}s`)}b\x201R(){q\x20e=1a(T.1s(9.O));1k.1P=`${e.M}:${e.N}`,1k.u(\x221Q\x22,`${e.M}m\x20${e.N}s`)}b\x201S(){l.A=T.1T(9.O),Y.A=T.1T(9.O)}b\x201U(e){q\x20t=T.1s(e.2z/e.U.2A*i(e.U.2B(\x221t\x22),10));l.u(\x22B-l\x22,t);q\x20o=1a(t);1l.2C=`${o.M}:${o.N}`;q\x20n=9.2D();1l.2E.1V=`${e.2F-n.1V}2G`}b\x201W(e){q\x20t=e.U.1u.l?e.U.1u.l:e.U.A;9.O=t,Y.A=t,l.A=t,18()}b\x201X(){9.P&&(9.P=!1),9.d=d.A}b\x201Y(){1F.1N(e=>{e.w.1v(\x22I\x22)}),Z.u(\x22B-19\x22,\x222H\x20(m)\x22),9.P||0===9.d?(1G.w.C(\x22I\x22),Z.u(\x22B-19\x22,\x222I\x20(m)\x22)):9.d>0&&9.d<=.5?1H.w.C(\x22I\x22):1I.w.C(\x22I\x22)}b\x201w(){9.P=!9.P,9.P?(d.u(\x22B-d\x22,d.A),d.A=0):d.A=d.1u.d}b\x201x(){1J.2J([{D:1,1Z:\x2220(1)\x22},{D:0,1Z:\x2220(1.3)\x22}],{r:2K})}b\x201b(){9.17||L.w.1v(\x2221\x22)}b\x201c(){L.w.C(\x2221\x22)}b\x2022(e){q{V:t}=e;2L(t){1d\x22k\x22:16(),1x(),9.17?1c():2M(()=>{1b()},2N);1y;1d\x22m\x22:1w();1y;1d\x22f\x22:2O();1y;1d\x22p\x22:2P()}}H\x20V,v,E,Q,W;1L&&(9.1B=!1,L.w.C(\x22I\x22)),X.g(\x221e\x22,16),9.g(\x221j\x22,1q),9.g(\x221M\x22,1q),9.g(\x222Q\x22,1O),9.g(\x2223\x22,1R),9.g(\x2223\x22,1S),9.g(\x222R\x22,1Y),9.g(\x221e\x22,16),9.g(\x221e\x22,1x),9.g(\x2224\x22,1c),9.g(\x2225\x22,1b),L.g(\x2224\x22,1c),L.g(\x2225\x22,1b),l.g(\x222S\x22,1U),l.g(\x2226\x22,1W),d.g(\x2226\x22,1X),Z.g(\x221e\x22,1w),c.g(\x222T\x22,()=>{\x222U\x222V\x20c||2W.w.1v(\x22I\x22)}),c.g(\x222X\x22,22);H\x20S=0;b\x2027(){S=i(9.O);H\x20e=i(9.r);1p=2Y(()=>{H\x20t=1z(S),o=1z(e);t<=o&&(K.1A(\x22#W\x22).1f(\x22F\x22).h(\x2228\x22,\x222Z\x22).F(t+\x22\x20/\x20\x22+o).h(\x22x\x22,30).h(\x22y\x22,G).h(\x22D\x22,0).1g().r(J).h(\x22D\x22,1).1g().r(J).h(\x22D\x22,0).C(),S++)},J)}b\x2029(){K.F(\x2231.2a\x22,b(e){H\x20t=i(9.O);2b=K.32(e),K.1A(\x22#2a\x22).1h(\x22p\x22).B(2b).2c().1f(\x22p\x22).F(b(e,o){33(e)||\x22\x22==e?\x22\x22==e?v>=0&&13.34({V:V,v:v,E:E,Q:E-v,1i:1i}):3==e.35?(v=G*(10*i(e[0][3])+i(e[0][4]))+(10*i(e[0][6])+i(e[0][7])),E=G*(10*i(e[1][11])+i(e[1][12]))+(10*i(e[1][14])+i(e[1][15])),v-=t,E-=t):1i=e:V=i(e)});H\x20o=2d,n=36,a;K.1A(\x22.9-1K\x22).1f(\x2237\x22).h(\x2228\x22,\x22W\x22).h(\x2238\x22,\x22W\x22).h(\x2239\x22,o).h(\x223a\x22,n).h(\x223b\x22,b(){z\x220,\x200,\x202d,\x20\x22+n}).1h(\x22F\x22).B(13).2c().1f(\x22F\x22).F(b(e,t){z\x20e.1i}).h(\x22v\x22,b(e,t){z\x20e.v}).h(\x22E\x22,b(e,t){z\x20e.E}).h(\x22x\x22,3c).h(\x22y\x22,3d).h(\x22F-3e\x22,\x223f\x22).h(\x22D\x22,0).1g().3g(b(e){z\x20J*(e.v-e.Q/2)}).r(b(e){z\x20J*(e.Q+e.Q/2)}).h(\x22D\x22,1).1g().r(b(e){z\x20e.Q/6*J}).h(\x22D\x22,0),27()})}b\x201z(e){z\x20e%G<10?\x220\x22+i(e/G)+\x22:0\x22+e%G:\x220\x22+i(e/G)+\x22:\x22+e%G}b\x2018(){K.1h(\x22p\x22).C(),K.1h(\x22.W\x22).C(),3h(1p),13=[],29()}','fromCharCode','6LSzFpg','91656DlqSAo','21713uTSYam','22956Lkfzcy','4EvRHDt','311OSXFEY','21472tvOKPW','219806ugWZom','717PqDUOU','|||||||||video||function|document|volume|||addEventListener|attr|parseInt|getElementById||seek|||||const|duration|||setAttribute|begin|classList|||return|value|data|remove|opacity|end|text|60|var|hidden|1e3|d3|videoControls|minutes|seconds|currentTime|muted|dur|use|time|Math|target|key|subtitle|playButton|progressBar|volumeButton||||myarray|||togglePlay|paused|resetSubtitle|title|formatTime|hideControls|showControls|case|click|append|transition|selectAll|subtile|play|timeElapsed|seekTooltip|button|querySelector|href|timer|updatePlayButton|substr|round|max|dataset|add|toggleMute|animatePlayback|break|to_clock|select|controls|playbackIcons|querySelectorAll|playback|volumeIcons|volumeMute|volumeLow|volumeHigh|playbackAnimation|container|videoWorks|pause|forEach|initializeVideo|innerText|datetime|updateTimeElapsed|updateProgress|floor|updateSeekTooltip|left|skipAhead|updateVolume|updateVolumeIcon|transform|scale|hide|keyboardShortcuts|timeupdate|mouseenter|mouseleave|input|play_time|id|make_subtitle|srt|parsedCSV|enter|960|icons|elapsed|progress|bar|tooltip|mute|low|high|animation|fullscreenButton|fullscreen|videoContainer|createElement|canPlayType|ended|toggle|Play|Pause|new|Date|toISOString|offsetX|clientWidth|getAttribute|textContent|getBoundingClientRect|style|pageX|px|Mute|Unmute|animate|500|switch|setTimeout|2e3|toggleFullScreen|togglePip|loadedmetadata|volumechange|mousemove|DOMContentLoaded|pictureInPictureEnabled|in|pipButton|keyup|setInterval|clock|430|DAOKO|csvParseRows|isNaN|push|length|540|svg|class|width|height|viewbox|390|340|anchor|middle|delay|clearInterval','replace','\x5cw+','27327NiDuOG'];function _0x1683(_0x5c08c7,_0x207aac){_0x5c08c7=_0x5c08c7-0x89;var _0x26677e=_0x2667[_0x5c08c7];return _0x26677e;}var _0x408960=_0x1683;(function(_0x308223,_0x26ad2d){var _0xf4def9=_0x1683;while(!![]){try{var _0x364417=-parseInt(_0xf4def9(0x8b))+-parseInt(_0xf4def9(0x90))+-parseInt(_0xf4def9(0x8c))*-parseInt(_0xf4def9(0x89))+-parseInt(_0xf4def9(0x8d))*-parseInt(_0xf4def9(0x95))+-parseInt(_0xf4def9(0x8a))+-parseInt(_0xf4def9(0x8f))+-parseInt(_0xf4def9(0x8e))*-parseInt(_0xf4def9(0x91));if(_0x364417===_0x26ad2d)break;else _0x308223['push'](_0x308223['shift']());}catch(_0x5b0210){_0x308223['push'](_0x308223['shift']());}}}(_0x2667,0x1c2b8),eval(function(_0x161c0f,_0x3fb7a6,_0x15a40f,_0x29c0c8,_0xe04f5e,_0x401847){var _0x154961=_0x1683;_0xe04f5e=function(_0x3fbc58){var _0xd84af9=_0x1683;return(_0x3fbc58<_0x3fb7a6?'':_0xe04f5e(parseInt(_0x3fbc58/_0x3fb7a6)))+((_0x3fbc58=_0x3fbc58%_0x3fb7a6)>0x23?String[_0xd84af9(0x97)](_0x3fbc58+0x1d):_0x3fbc58['toString'](0x24));};if(!''['replace'](/^/,String)){while(_0x15a40f--)_0x401847[_0xe04f5e(_0x15a40f)]=_0x29c0c8[_0x15a40f]||_0xe04f5e(_0x15a40f);_0x29c0c8=[function(_0x480e66){return _0x401847[_0x480e66];}],_0xe04f5e=function(){var _0x273136=_0x1683;return _0x273136(0x94);},_0x15a40f=0x1;};while(_0x15a40f--)if(_0x29c0c8[_0x15a40f])_0x161c0f=_0x161c0f[_0x154961(0x93)](new RegExp('\x5cb'+_0xe04f5e(_0x15a40f)+'\x5cb','g'),_0x29c0c8[_0x15a40f]);return _0x161c0f;}(_0x408960(0x96),0x3e,0xcc,_0x408960(0x92)['split']('|'),0x0,{})));
+const video = document.getElementById('video');
+const videoControls = document.getElementById('video-controls');
+const playButton = document.getElementById('play');
+const playbackIcons = document.querySelectorAll('.playback-icons use');
+const timeElapsed = document.getElementById('time-elapsed');
+const duration = document.getElementById('duration');
+const progressBar = document.getElementById('progress-bar');
+const seek = document.getElementById('seek');
+const seekTooltip = document.getElementById('seek-tooltip');
+const volumeButton = document.getElementById('volume-button');
+const volumeIcons = document.querySelectorAll('.volume-button use');
+const volumeMute = document.querySelector('use[href="#volume-mute"]');
+const volumeLow = document.querySelector('use[href="#volume-low"]');
+const volumeHigh = document.querySelector('use[href="#volume-high"]');
+const volume = document.getElementById('volume');
+const playbackAnimation = document.getElementById('playback-animation');
+const fullscreenButton = document.getElementById('fullscreen-button');
+const videoContainer = document.getElementById('video-container');
+// const fullscreenIcons = fullscreenButton.querySelectorAll('use');
+// const pipButton = document.getElementById('pip-button');
+var timer;
+var myarray = [];
+const videoWorks = !!document.createElement('video').canPlayType;
+  if (videoWorks) {
+    video.controls = false;
+    videoControls.classList.remove('hidden');
+  }
+
+// Add functions here
+
+// togglePlay toggles the playback state of the video.
+// If the video playback is paused or ended, the video is played
+// otherwise, the video is paused
+function togglePlay() {
+
+  if (video.paused || video.ended) {
+    resetSubtitle();
+    video.play();
+  } 
+  else {
+    resetSubtitle();
+    video.pause();
+  }
+}
+
+// updatePlayButton updates the playback icon and tooltip
+// depending on the playback state
+function updatePlayButton() {
+  playbackIcons.forEach((icon) => icon.classList.toggle('hidden'));
+
+  if (video.paused) {
+    playButton.setAttribute('data-title', 'Play (k)');
+  } else {
+    playButton.setAttribute('data-title', 'Pause (k)');
+  }
+}
+
+// formatTime takes a time length in seconds and returns the time in
+// minutes and seconds
+function formatTime(timeInSeconds) {
+
+    
+  const result = new Date(timeInSeconds * 1000).toISOString().substr(11, 8);
+
+  return {
+    minutes: result.substr(3, 2),
+    seconds: result.substr(6, 2),
+  };
+}
+
+// initializeVideo sets the video duration, and maximum value of the
+// progressBar
+function initializeVideo() {
+  const videoDuration = Math.round(video.duration);
+  seek.setAttribute('max', videoDuration);
+  progressBar.setAttribute('max', videoDuration);
+  const time = formatTime(videoDuration);
+  duration.innerText = `${time.minutes}:${time.seconds}`;
+  duration.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`);
+}
+
+// updateTimeElapsed indicates how far through the video
+// the current playback is by updating the timeElapsed element
+function updateTimeElapsed() {
+
+    const time = formatTime(Math.round(video.currentTime));
+    timeElapsed.innerText = `${time.minutes}:${time.seconds}`;
+    timeElapsed.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`);
+
+}
+
+// updateProgress indicates how far through the video
+// the current playback is by updating the progress bar
+function updateProgress() {
+  seek.value = Math.floor(video.currentTime);
+  progressBar.value = Math.floor(video.currentTime);
+
+}
+
+// updateSeekTooltip uses the position of the mouse on the progress bar to
+// roughly work out what point in the video the user will skip to if
+// the progress bar is clicked at that point
+function updateSeekTooltip(event) {
+  const skipTo = Math.round(
+    (event.offsetX / event.target.clientWidth) *
+      parseInt(event.target.getAttribute('max'), 10)
+  );
+  seek.setAttribute('data-seek', skipTo);
+  // console.log("1 updateSeekTooltip:"+skipTo);
+  const t = formatTime(skipTo);
+  // console.log("updateSeekTooltip time:" + t);
+  seekTooltip.textContent = `${t.minutes}:${t.seconds}`;
+  const rect = video.getBoundingClientRect();
+  seekTooltip.style.left = `${event.pageX - rect.left}px`;
+
+
+}
+
+// skipAhead jumps to a different point in the video when the progress bar
+// is clicked
+function skipAhead(event) {
+
+  const skipTo = event.target.dataset.seek
+    ? event.target.dataset.seek
+    : event.target.value;
+  video.currentTime = skipTo;
+  progressBar.value = skipTo;
+  seek.value = skipTo;
+ 
+  resetSubtitle();
+}
+
+// updateVolume updates the video's volume
+// and disables the muted state if active
+function updateVolume() {
+  if (video.muted) {
+    video.muted = false;
+  }
+
+  video.volume = volume.value;
+}
+
+// updateVolumeIcon updates the volume icon so that it correctly reflects
+// the volume of the video
+function updateVolumeIcon() {
+  volumeIcons.forEach((icon) => {
+    icon.classList.add('hidden');
+  });
+
+  volumeButton.setAttribute('data-title', 'Mute (m)');
+
+  if (video.muted || video.volume === 0) {
+    volumeMute.classList.remove('hidden');
+    volumeButton.setAttribute('data-title', 'Unmute (m)');
+  } else if (video.volume > 0 && video.volume <= 0.5) {
+    volumeLow.classList.remove('hidden');
+  } else {
+    volumeHigh.classList.remove('hidden');
+  }
+}
+
+// toggleMute mutes or unmutes the video when executed
+// When the video is unmuted, the volume is returned to the value
+// it was set to before the video was muted
+function toggleMute() {
+  video.muted = !video.muted;
+
+  if (video.muted) {
+    volume.setAttribute('data-volume', volume.value);
+    volume.value = 0;
+  } else {
+    volume.value = volume.dataset.volume;
+  }
+}
+
+// animatePlayback displays an animation when
+// the video is played or paused
+function animatePlayback() {
+  playbackAnimation.animate(
+    [
+      {
+        opacity: 1,
+        transform: 'scale(1)',
+      },
+      {
+        opacity: 0,
+        transform: 'scale(1.3)',
+      },
+    ],
+    {
+      duration: 500,
+    }
+  );
+}
+
+// toggleFullScreen toggles the full screen state of the video
+// If the browser is currently in fullscreen mode,
+// then it should exit and vice versa.
+// function toggleFullScreen() {
+//   if (document.fullscreenElement) {
+//     document.exitFullscreen();
+//   } else if (document.webkitFullscreenElement) {
+//     // Need this to support Safari
+//     document.webkitExitFullscreen();
+//   } else if (videoContainer.webkitRequestFullscreen) {
+//     // Need this to support Safari
+//     videoContainer.webkitRequestFullscreen();
+//   } else {
+//     videoContainer.requestFullscreen();
+//   }
+// }
+
+// updateFullscreenButton changes the icon of the full screen button
+// and tooltip to reflect the current full screen state of the video
+// function updateFullscreenButton() {
+//   fullscreenIcons.forEach((icon) => icon.classList.toggle('hidden'));
+
+//   if (document.fullscreenElement) {
+//     fullscreenButton.setAttribute('data-title', 'Exit full screen (f)');
+//   } else {
+//     fullscreenButton.setAttribute('data-title', 'Full screen (f)');
+//   }
+// }
+
+// togglePip toggles Picture-in-Picture mode on the video
+// async function togglePip() {
+//   try {
+//     if (video !== document.pictureInPictureElement) {
+//       pipButton.disabled = true;
+//       await video.requestPictureInPicture();
+//     } else {
+//       await document.exitPictureInPicture();
+//     }
+//   } catch (error) {
+//     console.error(error);
+//   } finally {
+//     pipButton.disabled = false;
+//   }
+// }
+
+// hideControls hides the video controls when not in use
+// if the video is paused, the controls must remain visible
+function hideControls() {
+  if (video.paused) {
+    return;
+  }
+
+  videoControls.classList.add('hide');
+}
+
+// showControls displays the video controls
+function showControls() {
+  videoControls.classList.remove('hide');
+}
+
+// keyboardShortcuts executes the relevant functions for
+// each supported shortcut key
+function keyboardShortcuts(event) {
+  const { key } = event;
+  switch (key) {
+    case 'k':
+      togglePlay();
+      animatePlayback();
+      if (video.paused) {
+        showControls();
+      } else {
+        setTimeout(() => {
+          hideControls();
+        }, 2000);
+      }
+      break;
+    case 'm':
+      toggleMute();
+      break;
+    case 'f':
+      toggleFullScreen();
+      break;
+    case 'p':
+      togglePip();
+      break;
+  }
+}
+
+// Add eventlisteners here
+playButton.addEventListener('click', togglePlay);
+video.addEventListener('play', updatePlayButton);
+video.addEventListener('pause', updatePlayButton);
+video.addEventListener('loadedmetadata', initializeVideo);
+video.addEventListener('timeupdate', updateTimeElapsed);
+video.addEventListener('timeupdate', updateProgress);
+video.addEventListener('volumechange', updateVolumeIcon);
+video.addEventListener('click', togglePlay);
+video.addEventListener('click', animatePlayback);
+video.addEventListener('mouseenter', showControls);
+video.addEventListener('mouseleave', hideControls);
+videoControls.addEventListener('mouseenter', showControls);
+videoControls.addEventListener('mouseleave', hideControls);
+seek.addEventListener('mousemove', updateSeekTooltip);
+seek.addEventListener('input', skipAhead);
+volume.addEventListener('input', updateVolume);
+volumeButton.addEventListener('click', toggleMute);
+// fullscreenButton.addEventListener('click', toggleFullScreen);
+// videoContainer.addEventListener('fullscreenchange', updateFullscreenButton);
+// pipButton.addEventListener('click', togglePip);
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (!('pictureInPictureEnabled' in document)) {
+    pipButton.classList.add('hidden');
+  }
+});
+document.addEventListener('keyup', keyboardShortcuts);
+
+
+var key;
+var begin;
+var end;
+var dur;
+var subtitle;
+
+var time = 0;
+
+function play_time(){
+    var time2 =0.0
+    video.onloadedmetadata = function() {
+        time = parseInt(video.currentTime);
+        time2 = parseInt(video.duration ); 
+    };
+   
+   
+     
+
+     timer = setInterval(() => {
+
+        var mytime  = to_clock(time);
+        var mytime2 = to_clock(time2);
+        if(mytime<=mytime2){
+          d3.select('#subtitle')
+            .append('text')
+            .attr('id', 'clock')
+            .text(mytime +' / ' + mytime2)
+            .attr('x', 430)
+            .attr('y', 60)
+            .attr('opacity', 0)
+            .transition()
+            .duration(1000)
+            .attr('opacity', 1)
+            .transition()
+            .duration(1000)
+            .attr('opacity', 0)
+            .remove()
+            ;
+        time++;
+      }
+    }, 1000);
+
+}
+
+function make_subtitle(){
+
+    d3.text('DAOKO.srt', function(data){
+        // console.log(data);
+        //alert(data);
+        var videoTime = parseInt(video.currentTime);
+        // console.log(videoTime);
+
+        parsedCSV = d3.csvParseRows(data);
+        // console.log(parsedCSV);
+        //alert('parsedCSV.length = ' + parsedCSV.length);
+
+        d3.select('#srt')
+          .selectAll('p')
+          .data(parsedCSV)
+          .enter()
+          .append("p")
+          .text(function(d, i){
+              //return d;
+              if ( !isNaN(d) && d != '' ){
+                  key = parseInt(d);
+              } else if (d == '') {
+
+                  if(begin>=0){
+                    myarray.push({
+                      "key": key,
+                      "begin": begin,
+                      "end": end,
+                      "dur": end - begin,
+                      "subtile": subtile
+                    });
+                  }
+              } else if (d.length == 3 ){
+                  begin = (parseInt(d[0][3]) * 10 + parseInt(d[0][4])) * 60 +
+                          (parseInt(d[0][6]) * 10 + parseInt(d[0][7]));
+
+                  end =   (parseInt(d[1][11]) * 10 + parseInt(d[1][12])) * 60 +
+                          (parseInt(d[1][14]) * 10 + parseInt(d[1][15]));
+                  // console.log("begin"+begin);
+                  // console.log("videoTime"+videoTime);
+                  // console.log(begin>videoTime);
+
+                begin = begin - videoTime;
+                end = end - videoTime;
+              } else {
+                  subtile = d;
+              }   
+          })
+          ;
+
+          // 完成歌詞
+
+
+          // 完成歌詞
+          var w = 960;
+          var h = 540;
+
+          var svg = d3.select('.video-container')
+            .append('svg')
+            .attr('id', 'subtitle')
+            .attr("class","subtitle")
+            .attr('width', w)
+            .attr('height', h)
+            .attr('viewbox', function(){
+                return "0, 0, " + w + ', ' + h;
+            })
+            ;
+
+
+        svg.selectAll('text')
+           .data(myarray)
+           .enter()
+           .append('text')
+           .text(function(d, i){
+                return d.subtile;
+            })
+           .attr('begin', function(d, i){
+                   return d.begin;
+           })
+           .attr('end', function(d, i){
+                   return d.end;
+           })
+           .attr('x', (w / 2) -90)
+           .attr('y', h - 200)
+           .attr("text-anchor", "middle")
+           //.style('display', 'none')
+           .attr('opacity', 0)
+           .transition()
+           .delay(function(d){
+
+                return (d.begin - d.dur / 2) * 1000;
+           })
+           .duration(function(d){
+               return (d.dur + d.dur / 2) * 1000;
+           })
+           .attr('opacity', 1)
+           .transition()
+           .duration(function(d){
+               return (d.dur / 6.0 * 1000.0);
+           })
+           .attr('opacity', 0)
+           ;
+
+        play_time();
+    })
+
+}
+
+
+function to_clock (time){
+  if (time % 60 < 10) 
+    return '0' + parseInt(time / 60) + ':' + '0' + time % 60;
+  else
+    return '0' + parseInt(time / 60) + ':' + time % 60;
+}
+
+function resetSubtitle(){
+  d3.selectAll("p").remove();
+  d3.selectAll(".subtitle").remove();
+  clearInterval(timer);
+  myarray = []
+  make_subtitle();
+}

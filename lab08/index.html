@@ -1,69 +1,394 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
+
 <head>
-    <meta charset="utf-8">
-    <title>Lab 8</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap');
+  <meta charset="utf-8">
+  <title>Lab 8</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap');
 
-        h1, div {
-          background-color: rgba(255, 255, 0, 0.1);
-          font-family: 'Noto Serif JP', serif;
-          font-size: 24pt;
-          border: solid 1px black;
-          width: 90%;
-          margin: 5px auto;
-          padding: 10px;
-        }
+    h1,
+    div {
+      background-color: rgba(255, 255, 0, 0.1);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 24pt;
+      border: solid 1px black;
+      width: 90%;
+      margin: 5px auto;
+      padding: 10px;
+    }
 
-        div {
-          font-size: 12pt;
-        }
-        
-        body {
-            background-color: rgba(255, 128, 255, 0.1);
-        }
+    div {
+      font-size: 12pt;
+    }
 
-        video:hover {
-            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-        }
-    </style>
-    <script src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
+    body {
+      background-color: rgba(255, 128, 255, 0.1);
+    }
+
+
+    video:hover {
+      box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    }
+
+
+  </style>
+  <link rel="stylesheet" href="./xiao.css">
+  <link rel="stylesheet" href="./zhi.css"/>
+  <link rel="stylesheet" href="./cheng.css">
+  <!--
+    <script src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script>
+    -->
+  <!-- <script src="./d3.v4.min.js" charset="utf-8"></script> -->
 </head>
+
 <body>
-    <h1>
-        lab08 漢字書寫 (鉛筆字) (毛筆字也OK!) Path Animation
-    </h1>
-    <div>
-      限定使用 D3.js，參考以下影片。
-    	<ul>
-    		<li><a href="https://bl.ocks.org/basilesimon/f164aec5758d16d51d248e41af5428e4">Animate path in D3</a></li>
-    		<li><a href="https://codepen.io/MyXoToD/post/howto-self-drawing-svg-animation">"Self-Drawing" SVG</a></li>
-    		<li><a href="https://stackoverflow.com/questions/15275362/how-to-transition-a-path-in-d3-js">How to transition a path in d3.js</a></li>
-        <li><a href="https://css-tricks.com/svg-line-animation-works/">How SVG Line Animation Works</a></li>
-        <li><a href="http://blog.roachking.net/blog/2014/10/31/osolve-team-drawing-animation/">使用 SVG 將圖片做成動畫</a></li>
-        <li><a href="https://www.hesyifei.com/">何一非</a></li>
-    	</ul>
+  <h1>
+    lab08 漢字書寫 (鉛筆字) (毛筆字) Path Animation
+  </h1>
+  <div>
+    限定使用 D3.js，參考以下影片。
+    <ul>
+      <li><a href="https://bl.ocks.org/basilesimon/f164aec5758d16d51d248e41af5428e4">Animate path in D3</a></li>
+      <li><a href="https://codepen.io/MyXoToD/post/howto-self-drawing-svg-animation">"Self-Drawing" SVG</a></li>
+      <li><a href="https://stackoverflow.com/questions/15275362/how-to-transition-a-path-in-d3-js">How to transition a
+          path in d3.js</a></li>
+      <li><a href="https://css-tricks.com/svg-line-animation-works/">How SVG Line Animation Works</a></li>
+      <li><a href="http://blog.roachking.net/blog/2014/10/31/osolve-team-drawing-animation/">使用 SVG 將圖片做成動畫</a></li>
+      <li><a href="https://www.hesyifei.com/">何一非</a></li>
+      <li><a href="https://bl.ocks.org/veltman/403f95aee728d4a043b142c52c113f82">Centerline label placement</a></li>
+      <li><a href="https://bl.ocks.org/veltman/13a7234c4ea073bd7caaa11abb1f7b5d">Centerline label placement #2</a></li>
+      <li><a
+          href="https://medium.com/@GlennJong/svg-%E7%AD%86%E8%A8%98-%E6%89%8B%E5%AF%AB%E5%AD%97%E5%8B%95%E7%95%AB-3e42ec68bfdd">SVG
+          筆記：手寫字動畫</a></li>
+      <li><a href="https://inkscape.org/zh-hant/">Inkscape <img
+            src="https://media.inkscape.org/static/images/inkscape-logo.svg" width="64"></a></li>
+      <li><a href="https://www.oxxostudio.tw/articles/201406/svg-09-clipping-masking.html">SVG 研究之路 (9) - Clipping and
+          Masking</a></li>
+      <li><a href="https://petercollingridge.appspot.com/svg-optimiser">SVG optimiser</a></li>
+      <li><a href="https://petercollingridge.appspot.com/svg-transforms">svg-transforms</a></li>
+      <li><a href="https://jakearchibald.github.io/svgomg/">svgomg</a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+    </ul>
+  </div>
+
+  <div>
+
+  </div>
+
+
+  <div>
+    展示區 (姓名)
+    <hr>
+    <img width="256" src="./xiao.svg">
+    <img width="256" src="./chi.svg">
+    <img width="256" src="./cheng.svg">
+  </div>
+  <div style="width: 100%;">
+    <div style="width: 30%;display: inline-block;">">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="532"
+        height="512" viewBox="-10 0 266 256">
+
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="M 69.510588,56.018824 C 94.20706,55.717647 127.63765,46.983529 127.63765,46.983529 l 69.27059,-15.058823 14.45647,2.710588"
+          id="path839" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 89.388235,33.430588 c 10.842355,8.734118 25.298825,32.828236 25.298825,32.828236" id="path845" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 169.2,12.649412 c -24.39529,40.05647 -41.26118,52.404706 -41.26118,52.404706 l -14.15529,8.432941"
+          id="path847" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 98.42353,83.124706 c 29.21412,-5.421177 53.00706,-9.938824 53.00706,-9.938824 l 18.37176,-2.710588 -15.66117,26.50353 -22.28706,12.348236 c 0,0 -8.85412,4.82888 -8.85412,4.82888 l -14.33647,-0.31123"
+          id="path849" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="M 30.357647,112.03765 C 52.343529,111.73647 133.66118,93.364706 133.66118,93.364706 l 76.8,-9.637647 L 230,86.41114 c 0,0 -18.63529,1.231213 -23.45412,1.833566 -4.81882,0.602353 -34.63529,11.143529 -34.63529,11.143529"
+          id="path851" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 80.955294,128 c 38.249416,-6.62588 67.463526,-15.36 67.463526,-15.36 l 20.17883,-5.42118" id="path859" />
+
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 118.90353,55.115294 c 9.03529,9.938824 9.63765,18.974118 9.63765,18.974118 l -7.22824,98.484708 0.60235,50.29647 7.52942,14.45647"
+          id="path861" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 69.209412,132.81882 c 10.541176,9.63765 11.444706,16.86589 11.444706,16.86589 l -4.818824,46.08 -9.035294,22.58823 -11.444706,10.24 -18.672941,8.43294"
+          id="path863" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 81,159.47244 21.64,-6.17362 14.45647,-2.71058" id="path865" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 105.95294,129.80706 c -1.2047,12.95059 -4.51765,28.31059 -4.51765,28.31059" id="path867" />
+
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 80,184.44275 24.14588,-4.03804 9.63765,-1.50589" id="path869" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 103.54353,182.21176 c -2.40941,30.11765 -3.91529,32.52706 -3.91529,32.52706 l -10.842358,6.32471"
+          id="path871" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 140.28706,120.16941 7.83059,10.24 0.88235,3.16788 -16.54353,17.31212" id="path873" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="M 130.04706,146.67294 C 143.29882,145.76941 176,138.20142 176,138.20142" id="path875" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 136.07059,174.08 c 27.40706,-5.12 44.87529,-8.43294 44.87529,-8.43294" id="path877" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 145.40706,168.65882 c -2.71059,37.64706 -1.20471,48.48942 -1.20471,48.48942" id="path879" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 176.42824,111.13412 c -2.71059,41.26117 -0.39059,47.91037 -2.40942,50.89882 C 172,165.02139 179.44,221.06353 179.44,221.06353 l 15.36,17.46823"
+          id="path881" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 88.484706,170.16471 c 20.480004,-3.31295 59.934114,-12.95059 59.934114,-12.95059 l 10.24,-0.90353"
+          id="path883" />
+
+      </svg>
+
+
+    </div>
+    <div style="width: 30%;display: inline-block;">">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="532"
+        height="512" viewBox="-10 0 266 256">
+
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 21.898824,20.48 31.623529,18.371765 11.143529,8.734117" 
+          id="path99" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="M -22.374118,90.955294 15.875294,87.341176 45.089412,78.305882 86.35059,73.487059 74.60471,74.390588 37.56,90.051765"
+          id="path101" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="M 17.983529,117.15765 67.376471,102.09882 40.270588,112.03765 19.188235,133.12 16,142 l -1.329412,5.87765 c 0,0 40.357647,-19.57647 42.164706,-19.87765 1.807059,-0.30118 11.444706,-0.90353 11.444706,-0.90353 0,0 -21.684706,9.33647 -22.889412,9.93882 -1.204706,0.60236 -16.263529,12.64942 -16.263529,12.64942"
+          id="path103" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 21,170 14,32 2.861176,2.49882" 
+          id="path105" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 24,172 9,-9 21,-6 16,2 c 0,0 -13.465882,6.04471 -12.863529,8.75529 0.602353,2.71059 -7.228236,17.16706 -7.228236,17.16706 L 47.8,190.64471"
+          id="path107" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 28.825882,189.13882 42.164706,-7.52941" 
+          id="path109" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 94.78353,75.294118 c 6.01095,0.224899 34.33412,-0.602353 34.33412,-0.602353 l 66.56,-16.26353 14.75764,1.204706 10.24,4.216471"
+          id="path111" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 160.44,20.781176 2.71059,53.910589 -5.72235,31.623525 v 7.83059" 
+          id="path113" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 109.84235,117.76 32.22589,-5.12 c 0,0 40.35764,-11.14353 41.56235,-11.44471 1.2047,-0.30117 18.37176,0.60236 18.37176,0.60236"
+          id="path115" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 110.14353,139.44471 -8.73412,24.99764 3.31294,20.78118" 
+          id="path117" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 122.79294,144.26353 20.17882,24.39529 31.32236,18.07059 33.73176,5.72235 23.79294,-1.50588 23.08102,-5.35414 -13.14219,-4.2835 L 216.76,152.99765 186.64235,135.22824"
+          id="path119" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 148.39294,118.06118 c 2.35895,3.17904 9.0353,15.05882 9.0353,15.05882 l 20.78117,11.44471"
+          id="path121" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 213.14588,109.32706 30.72,10.84235 15.05883,12.95059" id="path123" />
+
+      </svg>
+
+
     </div>
 
-    <div>
+    <div style="width: 30%;display: inline-block;">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="532"
+        height="512" viewBox="-1 0 266 256">
 
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 40.898824,68.668235 c -6.02353,25.6 0.602352,24.395294 0.602352,24.395294 L 54.451765,90.955294 64.992941,92.16 136.97412,74.390588 179.13882,66.56 l 23.49177,9.637647 -31.92471,3.614118"
+          id="path201" />
+
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 61.077647,92.762353 c -1.505882,6.625882 0,24.696467 0,24.696467 l 0.903529,22.58824 -6.023529,29.81647 -11.444706,23.49176 -19.275294,19.87765 -11.745882,6.32471"
+          id="path203" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 64.691765,130.10824 c 3.790588,-1.37412 16.263529,-1.20471 16.263529,-1.20471 l 12.047056,-4.21647 h 11.14353 l 19.2753,10.84235 -12.04706,-3.01176 -5.72236,25.6 -9.03529,12.95059 -20.479999,17.46823 4.818823,-6.92706 -13.854118,-16.26353"
+          id="path205" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 112.27765,9.6376471 -2.71059,18.0705879 2.10823,24.696471 10.54118,41.562353 18.67294,43.068231 21.68471,36.74353 22.88941,27.40706 24.99765,20.48 26.02117,14.06824 -9.75764,-19.18824 L 225.21882,179.2"
+          id="path207" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 148.11765,12.649412 27.40706,14.45647 15.05882,10.950589" 
+          id="path209" />
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+          d="m 180.04235,124.38588 c -3.56,1.34824 -19.57647,37.34588 -19.57647,37.34588 l -22.28706,23.79295 -40.05647,25.6"
+          id="path211" />
+
+      </svg>
     </div>
 
-    <div>
-      展示區 (姓名)
-      <hr>
-      <img width="256" src="./uni8607_FZSJSK--GBK1-0.svg">
-      <img width="256" src="./uni5B50_FZSJSK--GBK1-0.svg">
-      <img width="256" src="./uni77BB_FZSJSK--GBK1-0.svg">
-    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $(function() {
+      console.log("docuemnt ready");
+    });
+    var path1 = document.querySelector('#path839');
+    var path2 = document.querySelector('#path845');
+    var path19 = document.querySelector('#path847');
+    var path3 = document.querySelector('#path849');
+    var path4 = document.querySelector('#path851');
+    var path5 = document.querySelector('#path859');
+    var path6 = document.querySelector('#path861');
+    var path7 = document.querySelector('#path863');
+    var path8 = document.querySelector('#path865');
+    var path9 = document.querySelector('#path867');
+    var path10 = document.querySelector('#path869');
+    var path11 = document.querySelector('#path871');
+    var path12 = document.querySelector('#path873');
+    var path13 = document.querySelector('#path875');
+    var path14 = document.querySelector('#path877');
+    var path15 = document.querySelector('#path879');
+    var path16 = document.querySelector('#path881');
+    var path18 = document.querySelector('#path883');
+    //--------------------------------------------------------
 
-    <div>
-      Drag and Drop 展示區 (接收任何SVG)
-    </div>
+    var length1 = parseInt(path1.getTotalLength());
+    var length2 = parseInt(path2.getTotalLength());
+    var length19 = parseInt(path19.getTotalLength());
+    var length3 = parseInt(path3.getTotalLength());
+    var length4 = parseInt(path4.getTotalLength());
+    var length5 = parseInt(path5.getTotalLength());
+    var length6 = parseInt(path6.getTotalLength());
+    var length7 = parseInt(path7.getTotalLength());
+    var length8 = parseInt(path8.getTotalLength());
+    var length9 = parseInt(path9.getTotalLength());
+    var length10 = parseInt(path10.getTotalLength());
+    var length11 = parseInt(path11.getTotalLength());
+    var length12 = parseInt(path12.getTotalLength());
+    var length13 = parseInt(path13.getTotalLength());
+    var length14 = parseInt(path14.getTotalLength());
+    var length15 = parseInt(path15.getTotalLength());
+    var length16 = parseInt(path16.getTotalLength());
+    // var length17 = parseInt(path17.getTotalLength());
+    var length18 = parseInt(path18.getTotalLength());
+    // console.log(length1)
+    // console.log(length2)
+    // console.log(length3)
+    // console.log(length4)
+    // console.log(length5)
+    // console.log(length6)
+    // console.log(length7)
+    // console.log(length8)
+    // console.log(length9)
+    // console.log(length10)
+    //--------------------------------------------------------
+    var zhi0 = document.querySelector('#path99');
+    var zhi1 = document.querySelector('#path101');
+    var zhi2 = document.querySelector('#path103');
+    var zhi3 = document.querySelector('#path105');
+    var zhi4 = document.querySelector('#path107');
+    var zhi5 = document.querySelector('#path109');
+    var zhi6 = document.querySelector('#path111');
+    var zhi7 = document.querySelector('#path113');
+    var zhi8 = document.querySelector('#path115');
+    var zhi9 = document.querySelector('#path117');
+    var zhi10 = document.querySelector('#path119');
+    var zhi11 = document.querySelector('#path121');
+    var zhi12 = document.querySelector('#path123');
+    $("#path99").attr("stoke-width","3px");
+    //--------------------------------------------------------
+    var zhilength0 = parseInt(zhi0.getTotalLength());
+    var zhilength1 = parseInt(zhi1.getTotalLength());
+    var zhilength2 = parseInt(zhi2.getTotalLength());
+    var zhilength3 = parseInt(zhi3.getTotalLength());
+    var zhilength4 = parseInt(zhi4.getTotalLength());
+    var zhilength5 = parseInt(zhi5.getTotalLength());
+    var zhilength6 = parseInt(zhi6.getTotalLength());
+    var zhilength7 = parseInt(zhi7.getTotalLength());
+    var zhilength8 = parseInt(zhi8.getTotalLength());
+    var zhilength9 = parseInt(zhi9.getTotalLength());
+    var zhilength10 = parseInt(zhi10.getTotalLength());
+    var zhilength11 = parseInt(zhi11.getTotalLength());
+    var zhilength12 = parseInt(zhi12.getTotalLength());
+    console.log("zhilength0",zhilength0)
+    console.log("zhilength1",zhilength1)
+    console.log("zhilength2",zhilength2)
+    console.log("zhilength3",zhilength3)
+    console.log("zhilength4",zhilength4)
+    console.log("zhilength5",zhilength5)
+    console.log("zhilength6",zhilength6)
+    console.log("zhilength7",zhilength7)
+    console.log("zhilength8",zhilength8)
+    console.log("zhilength9",zhilength9)
+    console.log("zhilength10",zhilength10)
+    console.log("zhilength11",zhilength11)
+    console.log("zhilength12",zhilength12)
+    //--------------------------------------------------------
+    //--------------------------------------------------------
+    // var cheng1 = document.querySelector('#path201');
+    // var cheng2 = document.querySelector('#path203');
+    // var cheng3 = document.querySelector('#path205');
+    // var cheng4 = document.querySelector('#path207');
+    // var cheng5 = document.querySelector('#path209');
+    // var cheng6 = document.querySelector('#path211');
 
-    <script type="text/javascript">
+    // console.log("cheng1",cheng1)
+    // console.log("cheng2",cheng2)
+    // console.log("cheng3",cheng3)
+    // console.log("cheng4",cheng4)
+    // console.log("cheng5",cheng5)
+    // console.log("cheng6",cheng6)
+    //--------------------------------------------------------
+    // var chenglength1 = parseInt(cheng1.getTotalLength());
+    // var chenglength2 = parseInt(cheng2.getTotalLength());
+    // var chenglength3 = parseInt(cheng3.getTotalLength());
+    // var chenglength4 = parseInt(cheng4.getTotalLength());
+    // var chenglength5 = parseInt(cheng5.getTotalLength());
+    // var chenglength6 = parseInt(cheng6.getTotalLength());
+    // console.log("cheng1",chenglength1)
+    // console.log("cheng2",chenglength2)
+    // console.log("cheng3",chenglength3)
+    // console.log("cheng4",chenglength4)
+    // console.log("cheng5",chenglength5)
+    // console.log("cheng6",chenglength6)
+
+    //--------------------------------------------------------
+  </script>
+
+  <div>
+    Drag and Drop 展示區 (接收任何SVG)
+  </div>
+
+  <script type="text/javascript">
       // Your beautiful D3 code will go here
-    </script>
-  </html>
-  
+  </script>
+
+</html>
