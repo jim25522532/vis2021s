@@ -8,7 +8,7 @@ C5C6C7
 Primary
 66FCF1
 Secondary
-45A29
+45A298
 */
 
 body{
@@ -17,6 +17,11 @@ body{
 
 h1,h2,h3,h4,h5{
     font-weight: 700;
+    color:#66FCF1;
+}
+
+h3{
+    font-size: 1.4rem;
 }
 /*
     Header 
@@ -25,6 +30,14 @@ a{
     color:#66FCF1;
 }
 
+img{
+    filter:grayscale(50%) brightness(0.8)
+}
+
+img.rounded-circle{
+    filter:none;
+    border:2px solid #66FCF1;
+}
 input {
     background-color: #1F2833 !important;
     color: #66FCF1 !important;
@@ -49,10 +62,12 @@ input {
     background-color: #1F2833;
 
 }
-
+.hero-post{
+    position: relative;
+}
 .hero-post-badges{
     position: absolute;
-    top:20px;
+    top:10px;
     right: 20px;
 
 }
@@ -66,7 +81,8 @@ input {
 
 .hero-post-content{
     position: absolute;
-    bottom:0;
+    bottom:10;
+    color:#66FCF1;
 }
 
 .hero-post-content{
@@ -77,4 +93,88 @@ input {
 
 .hero-post-content img{
     border:2px solid #66FCF1;
+}
+
+/* Main blog */
+.blog-posts{
+    background-color: #0b0b0b;
+    color:C5C6C7;
+}
+
+.blog-posts{
+    background-color: #1F2833;
+}
+
+.blog-posts h3{
+    font-size: 1.4rem;
+}
+.blog-post img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blog-post p{
+    font-size: 0.9rem;
+
+}
+.blog-post .col-sm-8{
+    border-left: 3px solid #66FCF1;
+}
+.badge{
+    margin-top: 1rem;
+
+}
+.badge>a{
+    margin-left: 0.5rem;
+    padding: 0.5rem;
+    background-color: #66FCF1;
+    color:#0B0C10;
+}
+
+/* ASIDE */
+.social-links {
+    background-color: #66FCF1;
+    color:#0B0C10;
+    font-size: 1.5rem;;
+}
+
+.social-links > a{
+    padding-top:2rem;
+}
+.primary-color{
+    background-color: #0b0b0b;
+    color:#66FCF1;
+}
+.secondary-color{
+    background-color: #1F2833;
+    color:#66FCF1;
+}
+
+.author p{
+    font-size: 0.9rem;
+}
+
+.author-social-links a{
+    margin-left: 0.8rem;
+}
+
+.badge {
+    padding-top: 1rem;
+    padding-bottom:1rem;
+}
+
+
+/* footer section*/
+.footer{
+    background-color: #1F2833;
+    color: #C5C6C7;
+}
+
+.footer p{
+    font-size: 0.9rem;
+}
+
+.footer a{
+    color:#66FCF1;
 }
