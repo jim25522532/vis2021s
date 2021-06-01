@@ -1,14 +1,14 @@
 path{
   stroke-width: 12 !important;
 }
-#path839 {
+#path301 {
   
-  clip-path: url("./clipPath/xiao.svg");
+  clip-path: url("#xiao");
   stroke-dasharray: 232;
-  animation: dash839 5s linear forwards;
+  animation: dash301 5s linear forwards;
 }
 
-@keyframes dash839 {
+@keyframes dash301 {
 
   0% {
     stroke-dashoffset: 232;
@@ -19,14 +19,14 @@ path{
   }
 }
 
-#path845 {
+#path303 {
   stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
+  clip-path: url("#xiao");
   stroke-dasharray: 232;
-  animation: dash845 5s linear forwards;
+  animation: dash303 5s linear forwards;
 }
 
-@keyframes dash845 {
+@keyframes dash303 {
 
   0%,
   5% {
@@ -38,14 +38,14 @@ path{
   }
 }
 
-#path847 {
+#path305 {
   stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
+  clip-path: url("#xiao");
   stroke-dasharray: 232;
-  animation: dash847 5s linear forwards;
+  animation: dash305 5s linear forwards;
 }
 
-@keyframes dash847 {
+@keyframes dash305 {
 
   0%,
   10% {
@@ -57,14 +57,14 @@ path{
   }
 }
 
-#path849 {
+#path307 {
   stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
+  clip-path: url("#xiao");
   stroke-dasharray: 232;
-  animation: dash849 5s linear forwards;
+  animation: dash307 5s linear forwards;
 }
 
-@keyframes dash849 {
+@keyframes dash307 {
 
   0%,
   15% {
@@ -76,14 +76,14 @@ path{
   }
 }
 
-#path851 {
+#path309 {
   stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
+  clip-path: url("#xiao");
   stroke-dasharray: 232;
-  animation: dash851 5s linear forwards;
+  animation: dash309 5s linear forwards;
 }
 
-@keyframes dash851 {
+@keyframes dash309 {
 
   0%,
   20% {
@@ -95,14 +95,14 @@ path{
   }
 }
 
-#path861 {
+#path311 {
   stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
+  clip-path: url("#xiao");
   stroke-dasharray: 232;
-  animation: dash861 5s linear forwards;
+  animation: dash311 5s linear forwards;
 }
 
-@keyframes dash861 {
+@keyframes dash311 {
 
   0%,
   25% {
@@ -114,14 +114,14 @@ path{
   }
 }
 
-#path863 {
+#path313 {
   stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
+  clip-path: url("#xiao");
   stroke-dasharray: 232;
-  animation: dash863 5s linear forwards;
+  animation: dash313 5s linear forwards;
 }
 
-@keyframes dash863 {
+@keyframes dash313 {
 
   0%,
   30% {
@@ -133,14 +133,14 @@ path{
   }
 }
 
-#path865 {
+#path315 {
   stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
+  clip-path: url("#xiao");
   stroke-dasharray: 232;
-  animation: dash865 5s linear forwards;
+  animation: dash315 5s linear forwards;
 }
 
-@keyframes dash865 {
+@keyframes dash315 {
 
   0%,
   35% {
@@ -152,14 +152,14 @@ path{
   }
 }
 
-#path867 {
+#path317 {
   stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
+  clip-path: url("#xiao");
   stroke-dasharray: 232;
-  animation: dash867 5s linear forwards;
+  animation: dash317 5s linear forwards;
 }
 
-@keyframes dash867 {
+@keyframes dash317 {
 
   0%,
   40% {
@@ -171,14 +171,14 @@ path{
   }
 }
 
-#path869 {
+#path319 {
   stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
+  clip-path: url("#xiao");
   stroke-dasharray: 232;
-  animation: dash869 5s linear forwards;
+  animation: dash319 5s linear forwards;
 }
 
-@keyframes dash869 {
+@keyframes dash319 {
 
   0%,
   45% {
@@ -190,14 +190,14 @@ path{
   }
 }
 
-#path871 {
+#path321 {
   stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
+  clip-path: url("#xiao");
   stroke-dasharray: 232;
-  animation: dash871 5s linear forwards;
+  animation: dash321 5s linear forwards;
 }
 
-@keyframes dash871 {
+@keyframes dash321 {
 
   0%,
   50% {
@@ -209,14 +209,14 @@ path{
   }
 }
 
-#path873 {
+#path323 {
   stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
+  clip-path: url("#xiao");
   stroke-dasharray: 232;
-  animation: dash873 5s linear forwards;
+  animation: dash323 5s linear forwards;
 }
 
-@keyframes dash873 {
+@keyframes dash323 {
 
   0%,
   55% {
@@ -228,14 +228,14 @@ path{
   }
 }
 
-#path875 {
+#path325 {
   stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
+  clip-path: url("#xiao");
   stroke-dasharray: 232;
-  animation: dash875 5s linear forwards;
+  animation: dash325 5s linear forwards;
 }
 
-@keyframes dash875 {
+@keyframes dash325 {
 
   0%,
   60% {
@@ -247,14 +247,14 @@ path{
   }
 }
 
-#path877 {
+#path327 {
   stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
+  clip-path: url("#xiao");
   stroke-dasharray: 232;
-  animation: dash877 5s linear forwards;
+  animation: dash327 5s linear forwards;
 }
 
-@keyframes dash877 {
+@keyframes dash327 {
 
   0%,
   65% {
@@ -266,14 +266,14 @@ path{
   }
 }
 
-#path879 {
+#path329 {
   stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
+  clip-path: url("#xiao");
   stroke-dasharray: 232;
-  animation: dash879 5s linear forwards;
+  animation: dash329 5s linear forwards;
 }
 
-@keyframes dash879 {
+@keyframes dash329 {
 
   0%,
   70% {
@@ -281,44 +281,6 @@ path{
   }
 
   75% {
-    stroke-dashoffset: 0;
-  }
-}
-
-#path881 {
-  stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
-  stroke-dasharray: 232;
-  animation: dash881 5s linear forwards;
-}
-
-@keyframes dash881 {
-
-  0%,
-  75% {
-    stroke-dashoffset: 232;
-  }
-
-  80% {
-    stroke-dashoffset: 0;
-  }
-}
-
-#path883 {
-  stroke-width: 12;
-  clip-path: url("./clipPath/xiao.svg");
-  stroke-dasharray: 232;
-  animation: dash883 5s linear forwards;
-}
-
-@keyframes dash883 {
-
-  0%,
-  80% {
-    stroke-dashoffset: 232;
-  }
-
-  85% {
     stroke-dashoffset: 0;
   }
 }

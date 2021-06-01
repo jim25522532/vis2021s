@@ -3,7 +3,7 @@ path{
 }
     #path201 {
       stroke-width: 3 ;
-      clip-path: url("./clipPath/cheng.svg");
+      clip-path: url("#cheng");
       stroke-dasharray: 224;
       animation: dash201 5s linear forwards;
     }
@@ -21,7 +21,7 @@ path{
     
     #path203 {
       stroke-width: 3 ;
-      clip-path: url("./clipPath/cheng.svg");
+      clip-path: url("#cheng");
       stroke-dasharray: 144;
       animation: dash203 5s linear forwards;
     }
@@ -40,7 +40,7 @@ path{
     
     #path205 {
       stroke-width: 3 ;
-      clip-path: url("./clipPath/cheng.svg");
+      clip-path: url("#cheng");
       stroke-dasharray: 173;
       animation: dash205 5s linear forwards;
     }
@@ -59,7 +59,7 @@ path{
     
     #path207 {
       stroke-width: 3;
-      clip-path: url("./clipPath/cheng.svg");
+      clip-path: url("#cheng");
       stroke-dasharray: 332;
       animation: dash207 5s linear forwards;
     }
@@ -78,7 +78,7 @@ path{
     
     #path209 {
       stroke-width: 3;
-      clip-path: url("./clipPath/cheng.svg");
+      clip-path: url("#cheng");
       stroke-dasharray: 49;
       animation: dash209 5s linear forwards;
     }
@@ -97,7 +97,7 @@ path{
     
     #path211 {
       stroke-width: 3 ;
-      clip-path: url("./clipPath/cheng.svg");
+      clip-path: url("#cheng");
       stroke-dasharray: 122;
       animation: dash211 5s linear forwards;
     }

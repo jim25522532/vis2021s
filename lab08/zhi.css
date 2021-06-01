@@ -1,7 +1,7 @@
 
     #path99 {
         stroke-width: 12 !important;
-        clip-path: url("./clipPath/zhi.svg");
+        clip-path: url("#zhi");
         stroke-dasharray: 50;
         animation: dash99 5s linear forwards;
       }
@@ -20,7 +20,7 @@
   
       #path101 {
         stroke-width: 12 !important;
-        clip-path: url("./clipPath/zhi.svg");
+        clip-path: url("#zhi");
         stroke-dasharray: 162;
         animation: dash101 5s linear forwards;
       }
@@ -39,7 +39,7 @@
   
       #path103 {
         stroke-width: 12 !important;
-        clip-path: url("./clipPath/zhi.svg");
+        clip-path: url("#zhi");
         stroke-dasharray: 229;
         animation: dash103 5s linear forwards;
       }
@@ -58,7 +58,7 @@
   
       #path105 {
         stroke-width: 12 !important;
-        clip-path: url("./clipPath/zhi.svg");
+        clip-path: url("#zhi");
         stroke-dasharray: 38;
         animation: dash105 5s linear forwards;
       }
@@ -77,7 +77,7 @@
   
       #path107 {
         stroke-width: 12 !important;
-        clip-path: url("./clipPath/zhi.svg");
+        clip-path: url("#zhi");
         stroke-dasharray: 91;
         animation: dash107 5s linear forwards;
       }
@@ -96,7 +96,7 @@
   
       #path109 {
         stroke-width: 12 !important;
-        clip-path: url("./clipPath/zhi.svg");
+        clip-path: url("#zhi");
         stroke-dasharray: 42;
         animation: dash109 5s linear forwards;
       }
@@ -115,7 +115,7 @@
   
       #path111 {
         stroke-width: 12 !important;
-        clip-path: url("./clipPath/zhi.svg");
+        clip-path: url("#zhi");
         stroke-dasharray: 128;
         animation: dash111 5s linear forwards;
       }
@@ -134,7 +134,7 @@
   
       #path113{
         stroke-width: 12 !important;
-        clip-path: url("./clipPath/zhi.svg");
+        clip-path: url("#zhi");
         stroke-dasharray: 93;
         animation: dash113 5s linear forwards;
       }
@@ -153,7 +153,7 @@
   
       #path115 {
         stroke-width: 12 !important;
-        clip-path: url("./clipPath/zhi.svg");
+        clip-path: url("#zhi");
         stroke-dasharray: 94;
         animation: dash115 5s linear forwards;
       }
@@ -172,7 +172,7 @@
   
       #path117 {
         stroke-width: 12 !important;
-        clip-path: url("./clipPath/zhi.svg");
+        clip-path: url("#zhi");
         stroke-dasharray: 47;
         animation: dash117 5s linear forwards;
       }
@@ -191,7 +191,7 @@
   
       #path119 {
         stroke-width: 12 !important;
-        clip-path: url("./clipPath/zhi.svg");
+        clip-path: url("#zhi");
         stroke-dasharray: 236;
         animation: dash119 5s linear forwards;
       }
@@ -210,7 +210,7 @@
   
       #path121 {
         stroke-width: 12 !important;
-        clip-path: url("./clipPath/zhi.svg");
+        clip-path: url("#zhi");
         stroke-dasharray: 41;
         animation: dash121 5s linear forwards;
       }
@@ -228,7 +228,7 @@
       }
       #path123 {
         stroke-width: 12 !important;
-        clip-path: url("./clipPath/zhi.svg");
+        clip-path: url("#zhi");
         stroke-dasharray: 52;
         animation: dash123 5s linear forwards;
       }
