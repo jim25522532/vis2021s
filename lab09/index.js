@@ -38,7 +38,7 @@ function togglePlay() {
     video.play();
   } 
   else {
-    resetSubtitle();
+    clearSubtitle();
     video.pause();
   }
 }
@@ -318,15 +318,19 @@ var dur;
 var subtitle;
 
 var time = 0;
-
+var time2 =0.0
 function play_time(){
-    var time2 =0.0
+    
+    
     video.onloadedmetadata = function() {
         time = parseInt(video.currentTime);
         time2 = parseInt(video.duration ); 
     };
+    if(time!=video.currentTime){
+      time = parseInt(video.currentTime);
+    }
    
-   
+    console.log(time2);
      
 
      timer = setInterval(() => {
@@ -477,4 +481,11 @@ function resetSubtitle(){
   clearInterval(timer);
   myarray = []
   make_subtitle();
+}
+
+function clearSubtitle(){
+  d3.selectAll("p").remove();
+  d3.selectAll(".subtitle").remove();
+  clearInterval(timer);
+  myarray = []
 }

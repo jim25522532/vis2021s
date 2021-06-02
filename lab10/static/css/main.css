@@ -31,7 +31,7 @@ a{
 }
 
 img{
-    filter:grayscale(50%) brightness(0.8)
+    filter:grayscale(5%) brightness(0.9)
 }
 
 img.rounded-circle{
@@ -57,41 +57,41 @@ input {
     color: #0B0C10 !important;
 }
 
-/* HERO SECTION */
-.hero{
+/* bear SECTION */
+.bear{
     background-color: #1F2833;
 
 }
-.hero-post{
+.bear-post{
     position: relative;
 }
-.hero-post-badges{
+.bear-post-badges{
     position: absolute;
     top:10px;
     right: 20px;
 
 }
 
-.hero-post-badges>a{
+.bear-post-badges>a{
     display: block;
     background-color: #0B0C10;
     color: #66FCF1;
     font-size: 0.8rem;
 }
 
-.hero-post-content{
+.bear-post-content{
     position: absolute;
     bottom:10;
     color:#66FCF1;
 }
 
-.hero-post-content{
+.bear-post-content{
     position: absolute;
     bottom:20px;
     color: #66FCF1;
 }
 
-.hero-post-content img{
+.bear-post-content img{
     border:2px solid #66FCF1;
 }
 
