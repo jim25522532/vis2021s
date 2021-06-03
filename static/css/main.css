@@ -6,7 +6,7 @@ Secondary Background
 Gray
 C5C6C7
 Primary
-66FCF1
+ffa900 ->#09eaf9
 Secondary
 45A298
 */
@@ -17,7 +17,7 @@ body{
 
 h1,h2,h3,h4,h5{
     font-weight: 700;
-    color:#66FCF1;
+    color:#09eaf9;
 }
 
 h3{
@@ -27,7 +27,7 @@ h3{
     Header 
 */
 a{
-    color:#66FCF1;
+    color:#09eaf9;
 }
 
 img{
@@ -36,15 +36,16 @@ img{
 
 img.rounded-circle{
     filter:none;
-    border:2px solid #66FCF1;
+    border:2px solid #09eaf9;
 }
 input {
     background-color: #1F2833 !important;
-    color: #66FCF1 !important;
+    color: #09eaf9 !important;
 }
+
 .navbar{
     background-color: #0B0C10;
-    color:#66FCF1 !important;
+    color:#09eaf9 !important;
 }
 
 .navbar-brand{
@@ -53,7 +54,7 @@ input {
 }
 
 .btn-main{
-    background-color: #66FCF1 !important;
+    background-color: #09eaf9 !important;
     color: #0B0C10 !important;
 }
 
@@ -75,24 +76,24 @@ input {
 .bear-post-badges>a{
     display: block;
     background-color: #0B0C10;
-    color: #66FCF1;
+    color: #09eaf9;
     font-size: 0.8rem;
 }
 
 .bear-post-content{
     position: absolute;
     bottom:10;
-    color:#66FCF1;
+    color:#09eaf9;
 }
 
 .bear-post-content{
     position: absolute;
     bottom:20px;
-    color: #66FCF1;
+    color: #09eaf9;
 }
 
 .bear-post-content img{
-    border:2px solid #66FCF1;
+    border:2px solid #09eaf9;
 }
 
 /* Main blog */
@@ -105,6 +106,22 @@ input {
     background-color: #1F2833;
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    padding-left: 1rem;
+    transition: .5s ease;
+    background-color: #1F2833;
+  }
+
+
+
 .blog-posts h3{
     font-size: 1.4rem;
 }
@@ -114,12 +131,15 @@ input {
     object-fit: cover;
 }
 
+.blog-post .overlay:hover{
+    opacity: 1;
+}
 .blog-post p{
     font-size: 0.9rem;
 
 }
 .blog-post .col-sm-8{
-    border-left: 3px solid #66FCF1;
+    border-left: 3px solid #09eaf9;
 }
 .badge{
     margin-top: 1rem;
@@ -128,13 +148,19 @@ input {
 .badge>a{
     margin-left: 0.5rem;
     padding: 0.5rem;
-    background-color: #66FCF1;
+    background-color: #09eaf9;
     color:#0B0C10;
+}
+
+.badge>p{
+
+    color: #09eaf9;
+
 }
 
 /* ASIDE */
 .social-links {
-    background-color: #66FCF1;
+    background-color: #09eaf9;
     color:#0B0C10;
     font-size: 1.5rem;;
 }
@@ -144,12 +170,17 @@ input {
 }
 .primary-color{
     background-color: #0b0b0b;
-    color:#66FCF1;
+    color:#09eaf9;
 }
 .secondary-color{
     background-color: #1F2833;
-    color:#66FCF1;
+    color:#09eaf9;
 }
+
+.aside-heading{
+    border-left: 3px solid #09eaf9;
+}
+
 
 .author p{
     font-size: 0.9rem;
@@ -176,5 +207,5 @@ input {
 }
 
 .footer a{
-    color:#66FCF1;
+    color:#09eaf9;
 }
