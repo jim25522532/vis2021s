@@ -1,253 +1,385 @@
-
 <!DOCTYPE html>
+<html>
 
-<html lang="zh-Hant-TW">
 <head>
-    <meta charset="utf-8">
-    <title>作品集</title>
-    <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
-    <style type="text/css">
-      @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link href="./static/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./static/css/main.css" rel="stylesheet">
 
-      h1 {
-        background-color: rgba(255, 255, 0, 0.1);
-        font-family: 'Noto Serif JP', serif;
-        font-size: 24pt;
-        border: solid 1px black;
-        width: 90%;
-        margin: 5px auto;
-        padding: 10px;
-      }
-
-      h3 {
-        background-color: rgba(255, 255, 0, 0.1);
-        color: white; 
-        text-shadow: 0 0 6px #FF0000, 0 0 6px #000000;
-        font-family: 'Noto Serif JP', serif;
-        font-size: 18pt;
-        border: solid 1px black;
-        width: 90%;
-        margin: 5px auto;
-        padding: 10px;
-      }
-
-      div {
-        font-family: 'Noto Serif JP', serif;
-        font-size: 12pt;
-        border: solid 1px blue;
-        width: 90%;
-        margin: 15px auto;
-        padding: 10px;
-      }
-
-      ul {
-        font-family: 'Noto Serif JP', serif;
-        font-size: 12pt;
-        border: solid 1px black;
-        width: 90%;
-        margin: 5px auto;
-        padding: 10px;
-      }
-
-      li {
-        margin: 2px 20px;
-      }
-
-      iframe:hover, div:hover, ul:hover, h1:hover, h3:hover {
-        background-color: rgba(255, 255, 128, 0.1);
-        /* offset-x | offset-y | blur-radius | spread-radius | color */
-        box-shadow: 0px 0px 5px 5px rgba(128, 255, 255, 0.5);
-      }
-
-      iframe {
-        border: 1px black solid;
-      }
-
-      /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs */
-      body {
-        font-family: Arial;
-      }
-
-      /* Style the tab */
-      .tab {
-        overflow: hidden;
-        border: 1px solid #fcc;
-        background-color: #f1f1f1;
-      }
-
-      /* Style the buttons inside the tab */
-      .tab button , .tab a{
-        background-color: #ffc;
-        float: left;
-        border: 1px solid #fcc;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: 0.3s;
-        font-size: 17px;
-        margin-right: 5px;
-        box-shadow: 0px 0px 3px 3px rgba(128, 255, 255, 0.5);
-      }
-
-      /* Change background color of buttons on hover */
-      .tab button:hover , .tab a:hover{
-        background-color: #ddd;
-      }
-
-      /* Create an active/current tablink class */
-      .tab button.active , .tab a.active{
-        background-color: #ccc;
-      }
-
-      /* Style the tab content */
-      .tabcontent {
-        display: none;
-        padding: 6px 12px;
-        border: 1px solid #ccc;
-        border-top: none;
-      }
-      /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs */
-
-
-    </style>
+    <title>Data visualization D3.js Lab</title>
 </head>
+
 <body>
+    <!-- Header section-->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Project</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<!--
-<h1>資料視覺化 作品集 Data Visualization Portfolio </h1>
--->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index2.html">Project List</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+ -->
 
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'content')">content</button>
-  <button class="tablinks" onclick="openCity(event, 'lab00')">00</button>
-  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab01/index.html">01</a>
-  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab02/index.html">02</a>
-  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab03/index.html">03</a>
-  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab04/index.html">04</a>
-  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab05/index.html">05</a>
-  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab06/index.html">06</a>
-  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab07/index.html">07</a>
-  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab08/index.html">08</a>
-  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab09/index.html">09</a>
-  <a class="tablinks" href="https://jim25522532.github.io/vis2021s/lab09/index.html">09 sol</a>
-  <button class="tablinks" onclick="openCity(event, 'lab10')">10</button>
-  <button class="tablinks" onclick="openCity(event, 'lab11')">11</button>
-  <button class="tablinks" onclick="openCity(event, 'lab12')">12</button>
-  <button class="tablinks" onclick="openCity(event, 'lab13')">13</button>
-  <button class="tablinks" onclick="openCity(event, 'lab14')">14</button>
-  <button class="tablinks" onclick="openCity(event, 'lab66')">66</button>
-  <button class="tablinks" onclick="openCity(event, 'lab99')">99</button>
-</div>
+                </ul>
+                <!-- <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control border-0 rounded-0" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn-main rounded-0 btn btn-success my-sm-0" type="submit">Search</button>
+                </form> -->
+            </div>
 
-<div id="content" class="tabcontent">
-  <li>Lab00 1.svg 個人大頭照 </li>
-  <li>Lab01 電仔 </li>
-  <li>Lab02 tree map </li>
-  <li>Lab03 美國地圖 http.server localhost </li>
-  <li>Lab04 成績單 </li>
-  <li>Lab05 histogram </li>
-  <li>Lab06 stacked barplot </li>
-  <li>Lab07 圓變漢字 </li>
-  <li>Lab08 書寫動畫 </li>
-  <li>Lab09 SVG 字幕 </li>
-  <li>Lab10 </li>
-  <li>Lab11 </li>
-  <li>Lab12 </li>
-  <li>Lab13 </li>  
-  <li>Lab14 臺灣地圖 </li>
-  <li>Lab66 期中計畫 R2D3 Decision Tree Visualization </li>
-  <li>Lab99 期末計畫 Choropleth Map (取消) </li>
-</div>
-
-<div id="lab00" class="tabcontent">
-    <iframe src="./lab00/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab01" class="tabcontent">
-    <iframe src="./lab01/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab02" class="tabcontent">
-    <iframe src="./lab02/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab03" class="tabcontent">
-    <iframe src="./lab03/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab04" class="tabcontent">
-    <iframe src="./lab04/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab05" class="tabcontent">
-    <iframe src="./lab05/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab06" class="tabcontent">
-    <iframe src="./lab06/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab07" class="tabcontent">
-    <iframe src="./lab07/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab08" class="tabcontent">
-    <iframe src="./lab08/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab09" class="tabcontent">
-    <iframe src="./lab09/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab10" class="tabcontent">
-    <iframe src="./lab09/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab11" class="tabcontent">
-    <iframe src="./lab09/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab12" class="tabcontent">
-    <iframe src="./lab09/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab13" class="tabcontent">
-    <iframe src="./lab09/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab14" class="tabcontent">
-    <iframe src="./lab09/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab66" class="tabcontent">
-    <iframe src="./lab99/index.html" width="100%" height="700" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
-
-<div id="lab99" class="tabcontent">
-    <iframe src="./lab99/index.html" width="100%" height="1000" seamless="seamless" scrolling="yes" frameborder="0" allowtransparency="true"> </iframe>
-</div>
+        </div>
+    </nav>
 
 
+    <!-- bear SECTION-->
+    <section class="bear py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Content -->    
+                    <div class="bear-post shadow">
+                        <img class="img-fluid" alt="" src="static/images/lab09.png" />
+                        <div class="bear-post-badges text-center">
+                            <a class="p-2 px-3 mb-2" href="#"><i class="mr-2 fa fa-calendar-o"
+                                    aria-hidden="true"></i>15. June 2021</a>
+                            <a class="p-2 px-3" href="../lab09/index.html">View more</a>
+                        </div>
+                        <div class="bear-post-content">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <!-- <img alt="Author" class="img-fluid rounded-circle" src="static/images/3.png" /> -->
+                                </div>
+                                <div class="col-sm-9">
+                                    <h2>Lab09</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="bear-post shadow mb-3">
+                        <img class="img-fluid" alt="" src="static/images/lab14.png" />
+                        <div class="bear-post-badges text-center">
+                            <a class="p-2 px-3 mb-2" href="#"><i class="mr-2 fa fa-calendar-o"
+                                    aria-hidden="true"></i>03. June 2021</a>
+                            <a class="p-2 px-3" href="../lab14/index.html">View</a>
 
+                        </div>
+                        <div class="bear-post-content">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <!-- <img alt="Author" class="img-fluid rounded-circle" src="static/images/lab14.png" /> -->
+                                </div>
+                                <div class="col-sm-9">
+                                    <h3>Lab14 Taiwan Map</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
 
-<script>
+    <!-- Main blog section-->
+    <section class="blog-posts">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <article class="blog-post mb-3 shadow" >
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="img-fluid" alt="" src="static/images/electro.svg" />
+                            </div>
+                            <div class="col-sm-8">
+                                <h3 class="m-0 mt-2">Lab01</h3>
+                                <!-- <p class="m-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum</p> -->
+                                <div class="badge">
+                                    <a href="../lab01/index.html">View more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="blog-post mb-3 shadow" >
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="img-fluid" alt="" src="static/images/Lab02.png" />
+                            </div>
+                            <div class="col-sm-8">
+                                <h3 class="m-0 mt-2">Tree Map-台灣電影票房</h3>
+                                <!-- <p class="m-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum</p> -->
+                                <div class="badge">
+                                    <a href="../lab02/index.html">View more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="blog-post mb-3 shadow" >
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="img-fluid" alt="" src="static/images/Lab03.png" />
+                            </div>
+                            <div class="col-sm-8">
+                                <h3 class="m-0 mt-2">Lab03 Python Web Server 指令</h3>
+                                <!-- <p class="m-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum</p> -->
+                                <div class="badge">
+                                    <a href="../lab03/index.html">View more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="blog-post mb-3 shadow" >
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="img-fluid" alt="" src="static/images/Lab04.png" />
+                            </div>
+                            <div class="col-sm-8">
+                                <h3 class="m-0 mt-2">Lab04 製作 CSV 表格，table data cell 內放置 img</h3>
+                                <!-- <p class="m-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum</p> -->
+                                <div class="badge">
+                                    <a href="../lab04/index.html">View more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="blog-post mb-3 shadow" >
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="img-fluid" alt="" src="static/images/Lab05.png" />
+                            </div>
+                            <div class="col-sm-8">
+                                <h3 class="m-0 mt-2">Lab05 histogram</h3>
+                                <!-- <p class="m-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum</p> -->
+                                <div class="badge">
+                                    <a href="../lab05/index.html">View more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="blog-post mb-3 shadow" >
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="img-fluid" alt="" src="static/images/Lab06.png" />
+                            </div>
+                            <div class="col-sm-8">
+                                <h3 class="m-0 mt-2">Lab06 stacked barplot</h3>
+                                <!-- <p class="m-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum</p> -->
+                                <div class="badge">
+                                    <a href="../lab06/index.html">View more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="blog-post mb-3 shadow" >
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="img-fluid" alt="" src="static/images/Lab07.png" />
+                            </div>
+                            <div class="col-sm-8">
+                                <h3 class="m-0 mt-2">Lab07 圓變漢字</h3>
+                                <!-- <p class="m-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum</p> -->
+                                <div class="badge">
+                                    <a href="../lab07/index.html">View more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="blog-post mb-3 shadow" >
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="img-fluid" alt="" src="static/images/Lab08.png" />
+                            </div>
+                            <div class="col-sm-8">
+                                <h3 class="m-0 mt-2">Lab08 書寫動畫</h3>
+                                <!-- <p class="m-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum</p> -->
+                                <div class="badge">
+                                    <a href="../lab08/index.html">View more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="blog-post mb-3 shadow" >
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="img-fluid" alt="" src="static/images/lab09.png" />
+                            </div>
+                            <div class="col-sm-8">
+                                <h3 class="m-0 mt-2">Lab09 SVG 字幕</h3>
+                                <!-- <p class="m-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum</p> -->
+                                <div class="badge">
+                                    <a href="../lab09/index.html">View more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <!-- google like aside-->
+                <aside class="col-md-4">
+                    <!-- 每個Link 在mobile有三分之一-->
+                    <!-- <div class="social-links row text-center">
+                        <div class="col-sm-4 py-5">
+                            <a class="social-link w-100">
+                                <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="col-sm-4 py-5 primary-color">
+                            <a class="social-link w-100">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="col-sm-4 py-5">
+                            <a class="social-link w-100">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div> -->
+                    <h4 class="aside-heading mt-4 mb-3 pl-2">Authors</h4>
+                    <article class="row author mb-3">
+                        <div class="col-sm-4">
+                            <img class="img-fluid rounded-circle" alt="" src="static/images/2.jpg" />
+                        </div>
+                        <div class="col-sm-8">
+                            <h5 class="m-0">Chi cheng</h5>
+                            <!-- <p class="m-0">There are many variations of passages of Lorem Ipsum available, but the
+                                majority have suffered alteration in some form</p> -->
+                            <div class="author-social-links">
+                                <a href="#"><i class="fa facebook-official fa-facebook-official" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa facebook-official fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
 
-openCity(event, 'content');
+                    </article>
+                    <h4 class="aside-heading mt-4">Popular Categories</h4>
+                    <div class="badge w-100 text-center">
+                        <p class="badge-link">
+                            <a>D3</a>
+                        </p>
+                        <p class="badge-link">
+                            <a>Javascript</a>
+                        </p>
+  
+                    </div>
+                </aside>
+            </div>
+        </div>
 
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  // evt.currentTarget.className += " active";
-}
-</script>
+    </section>
 
+    <!-- footer section-->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <a class="footer-logo" href="#">Blooger</a>
+                    <p>2021 NTUT Data visualization D3.js Lab </p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Usefull Links</h4>
+                    <ul>
+                        <li><a>Home</a></li>
+                        <!-- <li><a>Terms of service</a></li>
+                        <li><a>Privacy Policy</a></li>
+                        <li><a>Contact Us</a></li>
+                        <li><a>Newsletter</a></li> -->
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <!-- <h4>Newsletter</h4> -->
+                    <!-- <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form> -->
+                </div>
+            </div>
+            <div class="w-100 text-center">
+                <p>Made by xiao &copy; 2021 , All rights reserved</p>
+            </div>
+        </div>
+    </footer>
 </body>
+1
+
 </html>
