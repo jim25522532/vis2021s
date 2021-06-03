@@ -112,27 +112,28 @@
         .append('svg')
         .attr({'width':1600,'height':700});
       
-      var radius = d3.scale.linear()
-              .domain([0,1])
-              .range([100,200]);
+      // var radius = d3.scale.linear()
+      //         .domain([0,200])
+      //         .range([100,200]);
+      
+      // var line = d3.svg.line
+      //       .radial()
+      //       .interpolate("basis-closed")
+      //       .radius(function(d){ return radius(d); })
+      //       .angle(function(d,i){ return scale(i); });
   
-      var line = d3.svg.line
-            .radial()
-            .interpolate("basis-closed")
-            .radius(function(d){ return radius(d); })
-            .angle(function(d,i){ return scale(i); });
-  
-      var data = d3.range(360).map(function(i){
-              return Math.cos(Math.PI )/6 + 0.8;
-            });
+      // var data = d3.range(360).map(function(i){
+      //         return Math.cos(Math.PI )/6 + 0.8;
+      //       });
             
-      var scale = d3.scale.linear()
-               .domain([0,data.length])
-               .range([0,Math.PI*2]);
+      
+      // var scale = d3.scale.linear()
+      //          .domain([0,data.length])
+      //          .range([0,Math.PI*2]);
  
-               group = svg.append('g')
-            .attr('transform','translate('+ 200 +','+ 200 +')')
-            .attr("id","xiaoContainer");
+      group = svg.append('g')
+        .attr('transform','translate('+ 200 +','+ 200 +')')
+        .attr("id","xiaoContainer");
       
       group = svg.append('g')
             .attr('transform','translate('+ 500 +','+ 200 +')')
@@ -145,13 +146,12 @@
       var previous;
       var current;
 
+
       function plotXiao() {
             return new Promise((resolve, reject) => {
               d3.select("#xiaoContainer").selectAll("path")
-              .data([data])
-              .enter()
               .append("path")
-              .attr('d',line)
+              .attr('d',"M0 0 A50 100,0 0 0 100 0")
               .attr('fill','none')
               .attr('stroke','#000')
               .attr('stroke-width',1)
@@ -171,10 +171,9 @@
       function plotZhi() {
         return new Promise((resolve, reject) => {
           d3.select("#zhiContainer").selectAll("path")
-              .data([data])
-              .enter()
+
               .append("path")
-              .attr('d',line)
+              .attr('d',"M0 0 A50 100,0 0 0 100 0 M0 0 A50 100,0 0 0 100 -1")
               .attr('fill','none')
               .attr('stroke','#000')
               .attr('stroke-width',1)
@@ -192,10 +191,9 @@
 
       function plotCheng() {
         d3.select("#ChengContainer").selectAll("path")
-            .data([data])
-            .enter()
+
             .append("path")
-            .attr('d',line)
+            .attr('d',"M0 0 A50 100,0 0 0 100 0 M0 0 A50 100,0 0 0 100 -1")
             .attr('fill','none')
             .attr('stroke','#000')
             .attr('stroke-width',1)

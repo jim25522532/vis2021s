@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>lab03</title>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
     <!--
     <script src="./d3.js" charset="utf-8"></script>
@@ -242,7 +242,82 @@
 	  </textarea>
 	</div>
 
-	<div id="demo1404"></div>
+	
+
+    <div>
+        D3 template <br>
+        
+    </div>
+
+    <div class="taiwan-map">
+        <div id="map">
+
+        </div>
+        <div class="shop-list">
+            <h1 id="h1">縣市中文/</h1>
+            <h2 id="h2">縣市英文</h2>
+        </div>
+    </div>
+
+    
+    <script type="text/javascript">
+        // 用外層的 div 當 svg 的寬高
+
+       
+            const width = 500,
+                height = 300;
+
+            // 座標變換函式
+            var path = d3.geo.path().projection(
+                d3.geo
+                .mercator()
+                .center([121, 24])
+                .scale(4000)
+                .translate([width / 2, height / 2])
+            );
+            // 讓d3抓svg，並寫入寬高
+            //Create SVG element
+            var svg = d3.select("#map")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+
+            // 讓d3抓GeoJSON檔，並寫入path的路徑
+            var url = 'test.geojson'; // GeoJSON的檔案路徑
+            d3.json(url, (error, geometry) => {
+
+                if (error) {
+                    throw error;
+                }
+               
+                svg
+                    .selectAll('path')
+                    .data(geometry.features)
+                    .enter().append('path')
+                    .attr('d', path)
+                    .attr({
+                        // 設定id，為了click時加class用
+                        id: (d) => 'city' + d.properties.COUNTYCODE,
+                        fill:"#4caf50"
+                    })
+                    .on('click', d => {
+                        
+                        $("#h1").text(d.properties.COUNTYNAME);  // 換中文名
+                        $("#h2").text(d.properties.COUNTYENG);  // 換中文名
+                        // 有 .active 存在，就移除 .active
+                        if (document.querySelector('.active')) {
+                            document.querySelector('.active').classList.remove('active');
+                        }
+                        // 被點擊的縣市加上 .active
+                        document.getElementById('city' + d.properties.COUNTYCODE).classList.add('active');
+                    });
+            });
+       
+    </script>
+
+
+<div id="demo1404"></div>
 	<div>
 	  <textarea rows="36" cols="100" style="font-family:'Courier New'; background: rgba(128, 255, 255, 0.1);">
 
@@ -315,78 +390,6 @@
 		}
 
 		window.addEventListener( "load", start, false );
-    </script>
-
-    <div>
-        D3 template <br>
-        
-    </div>
-
-    <div class="taiwan-map">
-        <div id="map">
-
-        </div>
-        <div class="shop-list">
-            <h1 id="h1">縣市中文/</h1>
-            <h2 id="h2">縣市英文</h2>
-        </div>
-    </div>
-
-    
-    <script type="text/javascript">
-        // 用外層的 div 當 svg 的寬高
-
-       
-            const width = 500,
-                height = 300;
-
-            // 座標變換函式
-            var path = d3.geo.path().projection(
-                d3.geo
-                .mercator()
-                .center([121, 24])
-                .scale(4000)
-                .translate([width / 2, height / 2])
-            );
-            // 讓d3抓svg，並寫入寬高
-            //Create SVG element
-            var svg = d3.select("#map")
-                .append("svg")
-                .attr("width", width)
-                .attr("height", height);
-
-
-            // 讓d3抓GeoJSON檔，並寫入path的路徑
-            var url = 'test.geojson'; // GeoJSON的檔案路徑
-            d3.json(url, (error, geometry) => {
-
-                if (error) {
-                    throw error;
-                }
-               
-                svg
-                    .selectAll('path')
-                    .data(geometry.features)
-                    .enter().append('path')
-                    .attr('d', path)
-                    .attr({
-                        // 設定id，為了click時加class用
-                        id: (d) => 'city' + d.properties.COUNTYCODE,
-                        fill:"#4caf50"
-                    })
-                    .on('click', d => {
-                        
-                        $("#h1").text(d.properties.COUNTYNAME);  // 換中文名
-                        $("#h2").text(d.properties.COUNTYENG);  // 換中文名
-                        // 有 .active 存在，就移除 .active
-                        if (document.querySelector('.active')) {
-                            document.querySelector('.active').classList.remove('active');
-                        }
-                        // 被點擊的縣市加上 .active
-                        document.getElementById('city' + d.properties.COUNTYCODE).classList.add('active');
-                    });
-            });
-       
     </script>
 </body>
 
