@@ -60,7 +60,8 @@ input {
 
 /* bear SECTION */
 .bear{
-    background-color: #1F2833;
+    background-color: #263342;
+
 
 }
 .bear-post{
@@ -99,7 +100,7 @@ input {
 /* Main blog */
 .blog-posts{
     background-color: #0b0b0b;
-    color:C5C6C7;
+    color:#C5C6C7;
 }
 
 .blog-posts{
