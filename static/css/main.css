@@ -72,10 +72,12 @@ input {
     position: absolute;
     top:10px;
     right: 20px;
+    z-index: 10;
 
 }
 
 .bear-post-badges>a{
+    
     display: block;
     background-color: #0B0C10;
     color: #09eaf9;
@@ -117,13 +119,13 @@ input {
     bottom:0;
     width:100%;
     height:100%;
-    display:block;
     background:url("../images/stars.png") repeat top center;
-    z-index:-999;
+    z-index:0;
   }
 
 .blog-posts{
     background-color: #1F2833;
+    
 }
 
 .overlay {
